@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/a17private/myFlix-client/issues"
   },
-  "homepage": "https://github.com/a17private/myFlix-client#readme"
+  "homepage": "https://github.com/a17private/myFlix-client#readme",
+  "dependencies": {
+    "@parcel/transformer-sass": "^2.0.0-alpha.3"
+  }
 }
