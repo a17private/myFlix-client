@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/a17private/myFlix-client#readme",
   "dependencies": {
-    "@parcel/transformer-sass": "^2.0.0-alpha.3"
+   
   }
 }
