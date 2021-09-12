@@ -1,5 +1,5 @@
 import React from 'react';
-import { MovieCard } from '../movie-card/movie-card';
+/*import { MovieCard } from '../movie-card/movie-card';*/
 export class MainView extends React.Component {
 
   render() {
@@ -12,3 +12,4 @@ export class MainView extends React.Component {
     );
   }
 }
+
