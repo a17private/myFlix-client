@@ -7,6 +7,14 @@ export class MovieView extends React.Component {
 
     return (
       <div className="movie-view">
+           <Button
+              variant="dark"
+              onClick={() => {
+                onBackClick(null);
+              }}
+            >
+              Back
+            </Button>
         <div className="movie-poster">
           <img src={movie.ImagePath} />
         </div>
