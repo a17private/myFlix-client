@@ -22748,7 +22748,10 @@ var _movieView = require("../movie-view/movie-view");
 class MainView extends _reactDefault.default.Component {
     constructor(){
         super();
-    // same code
+        this.state = {
+            movies: [],
+            user: null
+        };
     }
     setSelectedMovie(newSelectedMovie) {
     // same code
@@ -22759,7 +22762,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 21
+                lineNumber: 24
             },
             __self: this,
             children: "The list is empty!"
@@ -22768,7 +22771,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 24
+                lineNumber: 27
             },
             __self: this,
             children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
@@ -22778,7 +22781,7 @@ class MainView extends _reactDefault.default.Component {
                 },
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 26
+                    lineNumber: 29
                 },
                 __self: this
             }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -22788,7 +22791,7 @@ class MainView extends _reactDefault.default.Component {
                     },
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 28
+                        lineNumber: 31
                     },
                     __self: this
                 }, movie._id)
