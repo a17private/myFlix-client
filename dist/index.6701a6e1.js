@@ -22769,7 +22769,7 @@ class MainView extends _reactDefault.default.Component {
                         lineNumber: 12
                     },
                     __self: this
-                })
+                }, movie._id)
             )
         }));
     }
