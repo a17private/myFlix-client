@@ -6,8 +6,7 @@ import { MovieView } from '../movie-view/movie-view';
 
 export class MainView extends React.Component {
   constructor() {
-    super();
-    // same code
+       // same code
   }
 
   setSelectedMovie(newSelectedMovie) {
