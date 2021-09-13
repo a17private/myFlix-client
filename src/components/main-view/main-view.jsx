@@ -12,4 +12,4 @@ export class MainView extends React.Component {
       {movies.map(movie => <MovieCard />)}
     </div>
   );
-}
+}}

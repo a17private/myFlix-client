@@ -22746,17 +22746,27 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _movieCard = require("../movie-card/movie-card");
 class MainView extends _reactDefault.default.Component {
     render() {
+        const { movies  } = this.state;
+        if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+            className: "main-view",
+            __source: {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 8
+            },
+            __self: this,
+            children: "The list is empty!"
+        }));
         return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 7
+                lineNumber: 11
             },
             __self: this,
             children: movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 8
+                        lineNumber: 12
                     },
                     __self: this
                 })
