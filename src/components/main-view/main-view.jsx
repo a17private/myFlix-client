@@ -15,9 +15,15 @@ import { MovieView } from '../movie-view/movie-view';
           { _id: 3, Title: 'Gladiator', Description: 'Commodus takes over power and demotes Maximus, one of the preferred generals of his father, Emperor Marcus Aurelius. As a result, Maximus is relegated to fighting till death as a gladiator.', ImagePath: 'https://www.jquery-az.com/html/images/banana.jpg'}
         ],
         selectedMovie: null
-      };
+      }
     }
-  
+
+    setSelectedMovie(newSelectedMovie) {
+      this.setState({
+        selectedMovie: newSelectedMovie
+      });
+    }
+    
     render() {
       const { movies, selectedMovie } = this.state;
     
