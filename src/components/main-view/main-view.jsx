@@ -29,6 +29,11 @@ import { MovieView } from '../movie-view/movie-view';
         });
     }
     
+    componentDidMount() {
+      document.addEventListener('keypress', event => {
+        console.log(event.key);
+      });
+    }
     
     setSelectedMovie(newSelectedMovie) {
       this.setState({
