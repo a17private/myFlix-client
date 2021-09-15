@@ -18,7 +18,7 @@ import { MovieView } from '../movie-view/movie-view';
    
    
     componentDidMount(){
-      axios.get('https://[myflixdb17].herokuapp.com/movies')
+      axios.get('https://myflixdb17.herokuapp.com/movies')
         .then(response => {
           this.setState({
             movies: response.data
@@ -38,19 +38,18 @@ import { MovieView } from '../movie-view/movie-view';
     
     render() {
       const { movies, selectedMovie } = this.state;
-    
-      if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
-
-    return (
-      <div className="main-view">
-        {selectedMovie
-          ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-          : movies.map(movie => (
-            <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }}/>
-          ))
-        }
-      </div>
-    );
+  
+      if (movies.length === 0) return <div className="main-view" />;
+  
+      return (
+        <div className="main-view">
+          {selectedMovie
+            ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+            : movies.map(movie => (
+              <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }}/>
+           ))
+          }
+        </div>
+      );
+    }
   }
-
-}
