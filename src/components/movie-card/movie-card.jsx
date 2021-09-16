@@ -9,6 +9,7 @@ export class MovieCard extends React.Component {
     const { movie, onMovieClick } = this.props;
 
     return (
+    <Row className="main-view justify-content-md-center">
       <Card>
         <Card.Img variant="top" src={movie.ImagePath} />
         <Card.Body>
@@ -17,6 +18,7 @@ export class MovieCard extends React.Component {
           <Button onClick={() => onMovieClick(movie)} variant="link">Open</Button>
         </Card.Body>
       </Card>
+    </Row>
     );
   }
 }
