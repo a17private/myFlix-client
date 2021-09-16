@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 
+import "./movie-card.scss";
+
 export class MovieCard extends React.Component {
   
   render() {
