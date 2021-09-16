@@ -37,11 +37,11 @@ import Col from 'react-bootstrap/Col';
       });
     }
     
-    setSelectedMovie(newSelectedMovie) {
+   /* setSelectedMovie(newSelectedMovie) {
       this.setState({
         selectedMovie: newSelectedMovie
       });
-    }
+    }*/
     
     render() {
       const { movies, selectedMovie } = this.state;
