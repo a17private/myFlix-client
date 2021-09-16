@@ -946,17 +946,26 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactDom = require("react-dom");
 var _reactDomDefault = parcelHelpers.interopDefault(_reactDom);
 var _mainView = require("./components/main-view/main-view");
+var _container = require("react-bootstrap/Container");
+var _containerDefault = parcelHelpers.interopDefault(_container);
 // Import statement to indicate that you need to bundle `./index.scss`
 var _indexScss = require("./index.scss");
 // Main component (will eventually use all the others)
 class MyFlixApplication extends _reactDefault.default.Component {
     render() {
-        return(/*#__PURE__*/ _jsxRuntime.jsx(_mainView.MainView, {
+        return(/*#__PURE__*/ _jsxRuntime.jsx(_containerDefault.default, {
             __source: {
                 fileName: "src/index.jsx",
-                lineNumber: 13
+                lineNumber: 14
             },
-            __self: this
+            __self: this,
+            children: /*#__PURE__*/ _jsxRuntime.jsx(_mainView.MainView, {
+                __source: {
+                    fileName: "src/index.jsx",
+                    lineNumber: 15
+                },
+                __self: this
+            })
         }));
     }
 }
@@ -970,7 +979,7 @@ _reactDomDefault.default.render(/*#__PURE__*/ _reactDefault.default.createElemen
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-dom":"gkWJK","./components/main-view/main-view":"2zHas","./index.scss":"jUTZ8","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5k0mc"}],"8xIwr":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-dom":"gkWJK","./components/main-view/main-view":"2zHas","./index.scss":"jUTZ8","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5k0mc","react-bootstrap/Container":"2PRIq"}],"8xIwr":[function(require,module,exports) {
 'use strict';
 module.exports = require('./cjs/react-jsx-runtime.development.js');
 
@@ -25984,6 +25993,41 @@ printWarning = function(text) {
 };
 module.exports = checkPropTypes;
 
-},{"./lib/ReactPropTypesSecret":"lYuBM"}],"kvL93":[function() {},{}],"jUTZ8":[function() {},{}]},["2OjQK","6Cqbf","dLPEP"], "dLPEP", "parcelRequireaec4")
+},{"./lib/ReactPropTypesSecret":"lYuBM"}],"kvL93":[function() {},{}],"jUTZ8":[function() {},{}],"2PRIq":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _extends = require("@babel/runtime/helpers/esm/extends");
+var _extendsDefault = parcelHelpers.interopDefault(_extends);
+var _objectWithoutPropertiesLoose = require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose");
+var _objectWithoutPropertiesLooseDefault = parcelHelpers.interopDefault(_objectWithoutPropertiesLoose);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _themeProvider = require("./ThemeProvider");
+var _excluded = [
+    "bsPrefix",
+    "fluid",
+    "as",
+    "className"
+];
+var defaultProps = {
+    fluid: false
+};
+var Container = /*#__PURE__*/ _reactDefault.default.forwardRef(function(_ref, ref) {
+    var bsPrefix = _ref.bsPrefix, fluid = _ref.fluid, _ref$as = _ref.as, Component = _ref$as === void 0 ? 'div' : _ref$as, className = _ref.className, props = _objectWithoutPropertiesLooseDefault.default(_ref, _excluded);
+    var prefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'container');
+    var suffix = typeof fluid === 'string' ? "-" + fluid : '-fluid';
+    return(/*#__PURE__*/ _reactDefault.default.createElement(Component, _extendsDefault.default({
+        ref: ref
+    }, props, {
+        className: _classnamesDefault.default(className, fluid ? "" + prefix + suffix : prefix)
+    })));
+});
+Container.displayName = 'Container';
+Container.defaultProps = defaultProps;
+exports.default = Container;
+
+},{"@babel/runtime/helpers/esm/extends":"bKAu6","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"3Rubg","classnames":"bOXOh","react":"6TuXu","./ThemeProvider":"eeqfi","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply"}]},["2OjQK","6Cqbf","dLPEP"], "dLPEP", "parcelRequireaec4")
 
 //# sourceMappingURL=index.6701a6e1.js.map
