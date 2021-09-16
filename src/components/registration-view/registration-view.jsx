@@ -22,43 +22,45 @@ export function RegistrationView(props) {
   };
 
   return (
-    <form>
-      <label className="username">
-        Username:
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </label>
-      <label className="password">
-        Password:
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </label>
-      <label className="email">
-        E-mail:
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </label>
-      <label className="birthdate">
-        Birth date:
-        <input
-          type="date"
-          value={birthdate}
-          onChange={(e) => setBirthdate(e.target.value)}
-        />
-      </label>
-      <button className="registerBtn" type="submit" onClick={handleSubmit}>
-        Register
-      </button>
-    </form>
+    <Row>
+      <form>
+          <label className="username">
+            Username:
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </label>
+          <label className="password">
+            Password:
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
+          <label className="email">
+            E-mail:
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </label>
+          <label className="birthdate">
+            Birth date:
+            <input
+              type="date"
+              value={birthdate}
+              onChange={(e) => setBirthdate(e.target.value)}
+            />
+          </label>
+          <button className="registerBtn" type="submit" onClick={handleSubmit}>
+            Register
+          </button>
+        </form>
+      </Row>
   );
 }
 
