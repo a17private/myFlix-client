@@ -1,22 +1,28 @@
 // myFlix-client/src/main-view/main-view.jsx
 
-import React from 'react';
-import axios from 'axios';
-import { MovieCard } from '../movie-card/movie-card';
-import { MovieView } from '../movie-view/movie-view';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import React from "react";
+import axios from "axios";
+
+import { MovieCard } from "../movie-card/movie-card";
+import { MovieView } from "../movie-view/movie-view";
+import { LoginView } from "../login-view/login-view";
+import { RegistrationView } from "../registration-view/registration-view";
+import { Container } from "react-bootstrap";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 
-
-  export class MainView extends React.Component{
-    constructor() {
-      super();
-      this.state = {
-        movies: [],
-        selectedMovie: null
-      }
-    }
+export class MainView extends React.Component {
+  constructor() {
+    super();
+    //initial state is set to null
+    this.state = {
+      movies: [],
+      selectedMovie: null,
+      user: null,
+      register: null,
+    };
+  }
    
    
     componentDidMount(){
@@ -42,11 +48,40 @@ import Col from 'react-bootstrap/Col';
         selectedMovie: movie
       });
     }
+
+    onRegistration(register) {
+      this.setState({
+        register,
+      });
+    }
+
+    onLoggedIn(user) {
+      this.setState({
+        user
+      });
+    }
     
     render() {
-      const { movies, selectedMovie } = this.state;
+      const { movies, user, selectedMovie } = this.state;
+
+     
+    /* If there is not registered user, the RegisterView is rendered. If there is a user registered,
+     the user details are *passed as a prop to the LoginView*/
+    if (!user)
+    return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
+
+  /* If there is no user, the LoginView is rendered. If there is a user logged in,
+   the user details are *passed as a prop to the LoginView*/
+  if (!user)
+    return (
+      <RegistrationView
+        onRegistration={(user) => this.onRegistration(user)}
+      />
+    );
   
-      if (movies.length === 0) return <div className="main-view" />;
+      
+    // Before the movies have been loaded
+    if (movies.length === 0) return <div className="main-view" />;
   
       return (
         <Row className="main-view justify-content-md-center">
