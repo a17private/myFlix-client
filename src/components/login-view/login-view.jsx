@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/Button";
+import axios from 'axios';
 
 import "./login-view.scss";
 
@@ -15,13 +16,29 @@ export function LoginView(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(username, password);
-   
-
-    props.onLoggedIn(username);
-  };
+    /* Send a request to the server for authentication */
+    /* then call props.onLoggedIn(username), which provides the username to our parent component (child to parent communication) */
+    props.onLoggedIn(username)
+  }; 
+  
+  /*const handleSubmit = (e) => {
+    e.preventDefault();
+    /* Send a request to the server for authentication */
+    /*axios.post('https://myflixdb17.herokuapp.com/login', {
+      Username: username,
+      Password: password
+    })
+    .then(response => {
+      const data = response.data;
+      props.onLoggedIn(data);
+    })
+    .catch(e => {
+      console.log('no such user')
+    });
+  };*/
 
   return (
-    
+
     <Form>
       <Form.Group controlId="formUsername">
         <Form.Label>Username:</Form.Label>
