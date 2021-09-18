@@ -36,13 +36,7 @@ export class MainView extends React.Component {
           console.log(error);
         });
     }
-    
-    componentDidMount() {
-      document.addEventListener('keypress', event => {
-        console.log(event.key);
-      });
-    }
-    
+       
     setSelectedMovie(movie) {
       this.setState({
         selectedMovie: movie
@@ -62,21 +56,19 @@ export class MainView extends React.Component {
     }
     
     render() {
-      const { movies, user, selectedMovie } = this.state;
+      const { movies, user, register, selectedMovie } = this.state;
 
      
-    /* If there is not registered user, the RegisterView is rendered. If there is a user registered,
-     the user details are *passed as a prop to the LoginView*/
+    
     if (!user)
     return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
 
-  /* If there is no user, the LoginView is rendered. If there is a user logged in,
-   the user details are *passed as a prop to the LoginView*/
-  if (!user)
+
+
+
+    if (!register)
     return (
-      <RegistrationView
-        onRegistration={(user) => this.onRegistration(user)}
-      />
+      <RegistrationView onRegistration={(user) => this.onRegistration(user)}/>
     );
   
       
@@ -88,12 +80,12 @@ export class MainView extends React.Component {
           {selectedMovie
             ? (
               <Col md={8}>
-                <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+                <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie) }} />
               </Col>
             )
             : movies.map(movie => (
               <Col md={3}>
-                <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+                <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie) }}/>
               </Col>
             ))
           }
@@ -102,4 +94,3 @@ export class MainView extends React.Component {
     }
   }
 
-export default MainView;

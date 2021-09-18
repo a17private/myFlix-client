@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 /*import Col from 'react-bootstrap/Col';*/
+import Image from "react-bootstrap/Image";
 
 export class MovieCard extends React.Component {
   render() {
@@ -10,7 +11,7 @@ export class MovieCard extends React.Component {
 
     return (
     <Row className="main-view justify-content-md-center">
-      <Card>
+      <Card className="card-container movie-card mb-2">
         <Card.Img variant="top" src={movie.ImagePath} />
         <Card.Body>
           <Card.Title>{movie.Title}</Card.Title>
