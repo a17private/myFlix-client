@@ -16,8 +16,8 @@ export class MovieView extends React.Component {
 
     return (
     <Row className="movie-view">
-      <Col xs={6} md={4} className="movie-poster">
-          <img src={movie.ImagePath} rounded />
+      <Col className="movie-poster">
+          <img src={movie.ImagePath}/>
         </Col>
         <Col className= "movie-title text-light">
             <span className="label">Title: </span>

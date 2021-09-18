@@ -26028,8 +26028,6 @@ class MovieView extends _reactDefault.default.Component {
             __self: this,
             children: [
                 /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-                    xs: 6,
-                    md: 4,
                     className: "movie-poster",
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
@@ -26038,7 +26036,6 @@ class MovieView extends _reactDefault.default.Component {
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
                         src: movie.ImagePath,
-                        rounded: true,
                         __source: {
                             fileName: "src/components/movie-view/movie-view.jsx",
                             lineNumber: 20
@@ -26155,25 +26152,23 @@ function LoginView(props) {
     _s();
     const [username, setUsername] = _react.useState('');
     const [password, setPassword] = _react.useState('');
-    const handleSubmit = (e)=>{
-        e.preventDefault();
-        console.log(username, password);
-        /* Send a request to the server for authentication */ /* then call props.onLoggedIn(username), which provides the username to our parent component (child to parent communication) */ props.onLoggedIn(username);
-    };
     /*const handleSubmit = (e) => {
     e.preventDefault();
-    /* Send a request to the server for authentication */ /*axios.post('https://myflixdb17.herokuapp.com/login', {
-      Username: username,
-      Password: password
-    })
-    .then(response => {
-      const data = response.data;
-      props.onLoggedIn(data);
-    })
-    .catch(e => {
-      console.log('no such user')
-    });
-  };*/ return(/*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default, {
+    console.log(username, password);
+    /* Send a request to the server for authentication */ /* then call props.onLoggedIn(username), which provides the username to our parent component (child to parent communication) */ /* props.onLoggedIn(username)
+  };*/ const handleSubmit = (e)=>{
+        e.preventDefault();
+        /* Send a request to the server for authentication */ _axiosDefault.default.post('https://myflixdb17.herokuapp.com/login', {
+            Username: username,
+            Password: password
+        }).then((response)=>{
+            const data = response.data;
+            props.onLoggedIn(data);
+        }).catch((e1)=>{
+            console.log('no such user');
+        });
+    };
+    return(/*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default, {
         __source: {
             fileName: "src/components/login-view/login-view.jsx",
             lineNumber: 42
