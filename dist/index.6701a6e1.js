@@ -24420,8 +24420,12 @@ var _card = require("react-bootstrap/Card");
 var _cardDefault = parcelHelpers.interopDefault(_card);
 var _row = require("react-bootstrap/Row");
 var _rowDefault = parcelHelpers.interopDefault(_row);
-/*import Col from 'react-bootstrap/Col';*/ var _image = require("react-bootstrap/Image");
+var _col = require("react-bootstrap/Col");
+var _colDefault = parcelHelpers.interopDefault(_col);
+var _image = require("react-bootstrap/Image");
 var _imageDefault = parcelHelpers.interopDefault(_image);
+var _cardColumns = require("react-bootstrap/CardColumns");
+var _cardColumnsDefault = parcelHelpers.interopDefault(_cardColumns);
 class MovieCard extends _reactDefault.default.Component {
     render() {
         const { movie , onMovieClick  } = this.props;
@@ -24429,63 +24433,86 @@ class MovieCard extends _reactDefault.default.Component {
             className: "main-view justify-content-md-center",
             __source: {
                 fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 13
+                lineNumber: 14
             },
             __self: this,
-            children: /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default, {
-                className: "card-container movie-card mb-2",
+            children: /*#__PURE__*/ _jsxRuntime.jsx(_cardColumnsDefault.default, {
                 __source: {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 14
+                    lineNumber: 15
                 },
                 __self: this,
-                children: [
-                    /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Img, {
-                        variant: "top",
-                        src: movie.ImagePath,
-                        __source: {
-                            fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 15
-                        },
-                        __self: this
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Body, {
-                        __source: {
-                            fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 16
-                        },
-                        __self: this,
-                        children: [
-                            /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Title, {
-                                __source: {
-                                    fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 17
-                                },
-                                __self: this,
-                                children: movie.Title
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Text, {
+                children: /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default, {
+                    border: "light",
+                    className: "card-container movie-card mb-2 ",
+                    __source: {
+                        fileName: "src/components/movie-card/movie-card.jsx",
+                        lineNumber: 16
+                    },
+                    __self: this,
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                            xs: 12,
+                            md: 10,
+                            className: "image-size justify-content-md-center",
+                            __source: {
+                                fileName: "src/components/movie-card/movie-card.jsx",
+                                lineNumber: 17
+                            },
+                            __self: this,
+                            children: /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Img, {
+                                variant: "top",
+                                src: movie.ImagePath,
+                                fluid: true,
                                 __source: {
                                     fileName: "src/components/movie-card/movie-card.jsx",
                                     lineNumber: 18
                                 },
-                                __self: this,
-                                children: movie.Description
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                                onClick: ()=>onMovieClick(movie)
-                                ,
-                                variant: "link",
-                                __source: {
-                                    fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 19
-                                },
-                                __self: this,
-                                children: "Open"
+                                __self: this
                             })
-                        ]
-                    })
-                ]
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Body, {
+                            className: "card p-0",
+                            style: {
+                                width: '11rem'
+                            },
+                            __source: {
+                                fileName: "src/components/movie-card/movie-card.jsx",
+                                lineNumber: 20
+                            },
+                            __self: this,
+                            children: [
+                                /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Title, {
+                                    __source: {
+                                        fileName: "src/components/movie-card/movie-card.jsx",
+                                        lineNumber: 21
+                                    },
+                                    __self: this,
+                                    children: movie.Title
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Text, {
+                                    __source: {
+                                        fileName: "src/components/movie-card/movie-card.jsx",
+                                        lineNumber: 22
+                                    },
+                                    __self: this,
+                                    children: movie.Description
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                                    onClick: ()=>onMovieClick(movie)
+                                    ,
+                                    variant: "link",
+                                    __source: {
+                                        fileName: "src/components/movie-card/movie-card.jsx",
+                                        lineNumber: 23
+                                    },
+                                    __self: this,
+                                    children: "Open"
+                                })
+                            ]
+                        })
+                    ]
+                })
             })
         }));
     }
@@ -24496,7 +24523,7 @@ class MovieCard extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Button":"9CzHT","react-bootstrap/Card":"MoOk8","react-bootstrap/Row":"c0x1x","react-bootstrap/Image":"kKVYG","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5k0mc"}],"9CzHT":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Button":"9CzHT","react-bootstrap/Card":"MoOk8","react-bootstrap/Row":"c0x1x","react-bootstrap/Image":"kKVYG","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5k0mc","react-bootstrap/Col":"fbam0","react-bootstrap/CardColumns":"kZGsF"}],"9CzHT":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _extends = require("@babel/runtime/helpers/esm/extends");
@@ -25901,144 +25928,7 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"kKPuG"}],"ikZdr":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$3741 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$3741.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "MovieView", ()=>MovieView
-);
-var _jsxRuntime = require("react/jsx-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _axios = require("axios");
-var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _row = require("react-bootstrap/Row");
-var _rowDefault = parcelHelpers.interopDefault(_row);
-var _col = require("react-bootstrap/Col");
-var _colDefault = parcelHelpers.interopDefault(_col);
-var _movieViewScss = require("./movie-view.scss");
-class MovieView extends _reactDefault.default.Component {
-    render() {
-        const { movie , onBackClick  } = this.props;
-        return(/*#__PURE__*/ _jsxRuntime.jsxs(_rowDefault.default, {
-            className: "movie-view",
-            __source: {
-                fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 18
-            },
-            __self: this,
-            children: [
-                /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-                    className: "movie-poster",
-                    __source: {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 19
-                    },
-                    __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
-                        src: movie.ImagePath,
-                        __source: {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 20
-                        },
-                        __self: this
-                    })
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsxs(_colDefault.default, {
-                    className: "movie-body text-light",
-                    __source: {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 22
-                    },
-                    __self: this,
-                    children: [
-                        /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                            className: "movie-title",
-                            __source: {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 23
-                            },
-                            __self: this,
-                            children: [
-                                /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                    className: "label",
-                                    __source: {
-                                        fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 24
-                                    },
-                                    __self: this,
-                                    children: "Title: "
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                    className: "value",
-                                    __source: {
-                                        fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 25
-                                    },
-                                    __self: this,
-                                    children: movie.Title
-                                })
-                            ]
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                            className: "movie-description",
-                            __source: {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 27
-                            },
-                            __self: this,
-                            children: [
-                                /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                    className: "label",
-                                    __source: {
-                                        fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 28
-                                    },
-                                    __self: this,
-                                    children: "Description: "
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                    className: "value",
-                                    __source: {
-                                        fileName: "src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 29
-                                    },
-                                    __self: this,
-                                    children: movie.Description
-                                })
-                            ]
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsx("button", {
-                            onClick: ()=>{
-                                onBackClick(null);
-                            },
-                            __source: {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 31
-                            },
-                            __self: this,
-                            children: "Back"
-                        })
-                    ]
-                })
-            ]
-        }));
-    }
-}
-
-  $parcel$ReactRefreshHelpers$3741.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","prop-types":"1tgq3","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","./movie-view.scss":"kvL93","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5k0mc"}],"fbam0":[function(require,module,exports) {
+},{"react-refresh/runtime":"kKPuG"}],"fbam0":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _extends = require("@babel/runtime/helpers/esm/extends");
@@ -26096,7 +25986,144 @@ var Col = /*#__PURE__*/ _reactDefault.default.forwardRef(function(_ref, ref) {
 Col.displayName = 'Col';
 exports.default = Col;
 
-},{"@babel/runtime/helpers/esm/extends":"bKAu6","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"3Rubg","classnames":"bOXOh","react":"6TuXu","./ThemeProvider":"eeqfi","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply"}],"kvL93":[function() {},{}],"054li":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/extends":"bKAu6","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"3Rubg","classnames":"bOXOh","react":"6TuXu","./ThemeProvider":"eeqfi","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply"}],"kZGsF":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _createWithBsPrefix = require("./createWithBsPrefix");
+var _createWithBsPrefixDefault = parcelHelpers.interopDefault(_createWithBsPrefix);
+exports.default = _createWithBsPrefixDefault.default('card-columns');
+
+},{"./createWithBsPrefix":"8AqEH","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply"}],"ikZdr":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$3741 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$3741.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MovieView", ()=>MovieView
+);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _row = require("react-bootstrap/Row");
+var _rowDefault = parcelHelpers.interopDefault(_row);
+var _col = require("react-bootstrap/Col");
+var _colDefault = parcelHelpers.interopDefault(_col);
+var _movieViewScss = require("./movie-view.scss");
+class MovieView extends _reactDefault.default.Component {
+    render() {
+        const { movie , onBackClick  } = this.props;
+        return(/*#__PURE__*/ _jsxRuntime.jsxs(_rowDefault.default, {
+            className: "movie-view",
+            __source: {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 18
+            },
+            __self: this,
+            children: [
+                /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                    xs: 6,
+                    md: 4,
+                    className: "movie-poster",
+                    __source: {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 19
+                    },
+                    __self: this,
+                    children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
+                        src: movie.ImagePath,
+                        rounded: true,
+                        __source: {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 20
+                        },
+                        __self: this
+                    })
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsxs(_colDefault.default, {
+                    className: "movie-title text-light",
+                    __source: {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 22
+                    },
+                    __self: this,
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            className: "label",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 23
+                            },
+                            __self: this,
+                            children: "Title: "
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            className: "value",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 24
+                            },
+                            __self: this,
+                            children: movie.Title
+                        })
+                    ]
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsxs(_colDefault.default, {
+                    className: "movie-description text-light",
+                    __source: {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 26
+                    },
+                    __self: this,
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            className: "label",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 27
+                            },
+                            __self: this,
+                            children: "Description: "
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            className: "value",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 28
+                            },
+                            __self: this,
+                            children: movie.Description
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx("button", {
+                            onClick: ()=>{
+                                onBackClick(null);
+                            },
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 29
+                            },
+                            __self: this,
+                            children: "Back"
+                        })
+                    ]
+                })
+            ]
+        }));
+    }
+}
+
+  $parcel$ReactRefreshHelpers$3741.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","prop-types":"1tgq3","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","./movie-view.scss":"kvL93","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5k0mc"}],"kvL93":[function() {},{}],"054li":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$02dd = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -26120,6 +26147,8 @@ var _form = require("react-bootstrap/Form");
 var _formDefault = parcelHelpers.interopDefault(_form);
 var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _loginViewScss = require("./login-view.scss");
 var _s = $RefreshSig$();
 function LoginView(props) {
@@ -26129,12 +26158,25 @@ function LoginView(props) {
     const handleSubmit = (e)=>{
         e.preventDefault();
         console.log(username, password);
-        props.onLoggedIn(username);
+        /* Send a request to the server for authentication */ /* then call props.onLoggedIn(username), which provides the username to our parent component (child to parent communication) */ props.onLoggedIn(username);
     };
-    return(/*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default, {
+    /*const handleSubmit = (e) => {
+    e.preventDefault();
+    /* Send a request to the server for authentication */ /*axios.post('https://myflixdb17.herokuapp.com/login', {
+      Username: username,
+      Password: password
+    })
+    .then(response => {
+      const data = response.data;
+      props.onLoggedIn(data);
+    })
+    .catch(e => {
+      console.log('no such user')
+    });
+  };*/ return(/*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default, {
         __source: {
             fileName: "src/components/login-view/login-view.jsx",
-            lineNumber: 25
+            lineNumber: 42
         },
         __self: this,
         children: [
@@ -26142,14 +26184,14 @@ function LoginView(props) {
                 controlId: "formUsername",
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 26
+                    lineNumber: 43
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 27
+                            lineNumber: 44
                         },
                         __self: this,
                         children: "Username:"
@@ -26160,7 +26202,7 @@ function LoginView(props) {
                         ,
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 28
+                            lineNumber: 45
                         },
                         __self: this
                     })
@@ -26170,14 +26212,14 @@ function LoginView(props) {
                 controlId: "formPassword",
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 30
+                    lineNumber: 47
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 31
+                            lineNumber: 48
                         },
                         __self: this,
                         children: "Password:"
@@ -26188,7 +26230,7 @@ function LoginView(props) {
                         ,
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 32
+                            lineNumber: 49
                         },
                         __self: this
                     })
@@ -26200,7 +26242,7 @@ function LoginView(props) {
                 onClick: handleSubmit,
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 34
+                    lineNumber: 51
                 },
                 __self: this,
                 children: "Submit"
@@ -26225,7 +26267,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","react-bootstrap/Form":"5ykgY","react-bootstrap/Button":"9CzHT","./login-view.scss":"lS4BK","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5k0mc"}],"5ykgY":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","react-bootstrap/Form":"5ykgY","react-bootstrap/Button":"9CzHT","./login-view.scss":"lS4BK","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5k0mc","axios":"iYoWk"}],"5ykgY":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _extends = require("@babel/runtime/helpers/esm/extends");
@@ -29503,14 +29545,7 @@ ButtonToolbar.displayName = 'ButtonToolbar';
 ButtonToolbar.defaultProps = defaultProps;
 exports.default = ButtonToolbar;
 
-},{"@babel/runtime/helpers/esm/extends":"bKAu6","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"3Rubg","classnames":"bOXOh","react":"6TuXu","./ThemeProvider":"eeqfi","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply"}],"kZGsF":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _createWithBsPrefix = require("./createWithBsPrefix");
-var _createWithBsPrefixDefault = parcelHelpers.interopDefault(_createWithBsPrefix);
-exports.default = _createWithBsPrefixDefault.default('card-columns');
-
-},{"./createWithBsPrefix":"8AqEH","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply"}],"6Gtv7":[function(require,module,exports) {
+},{"@babel/runtime/helpers/esm/extends":"bKAu6","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"3Rubg","classnames":"bOXOh","react":"6TuXu","./ThemeProvider":"eeqfi","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply"}],"6Gtv7":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _createWithBsPrefix = require("./createWithBsPrefix");
