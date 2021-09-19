@@ -24523,7 +24523,7 @@ class MovieCard extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Button":"9CzHT","react-bootstrap/Card":"MoOk8","react-bootstrap/Row":"c0x1x","react-bootstrap/Image":"kKVYG","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5k0mc","react-bootstrap/Col":"fbam0","react-bootstrap/CardColumns":"kZGsF"}],"9CzHT":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Button":"9CzHT","react-bootstrap/Card":"MoOk8","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","react-bootstrap/Image":"kKVYG","react-bootstrap/CardColumns":"kZGsF","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5k0mc"}],"9CzHT":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _extends = require("@babel/runtime/helpers/esm/extends");
@@ -25066,6 +25066,64 @@ var Row = /*#__PURE__*/ _reactDefault.default.forwardRef(function(_ref, ref) {
 Row.displayName = 'Row';
 Row.defaultProps = defaultProps;
 exports.default = Row;
+
+},{"@babel/runtime/helpers/esm/extends":"bKAu6","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"3Rubg","classnames":"bOXOh","react":"6TuXu","./ThemeProvider":"eeqfi","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply"}],"fbam0":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _extends = require("@babel/runtime/helpers/esm/extends");
+var _extendsDefault = parcelHelpers.interopDefault(_extends);
+var _objectWithoutPropertiesLoose = require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose");
+var _objectWithoutPropertiesLooseDefault = parcelHelpers.interopDefault(_objectWithoutPropertiesLoose);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _themeProvider = require("./ThemeProvider");
+var _excluded = [
+    "bsPrefix",
+    "className",
+    "as"
+];
+var DEVICE_SIZES = [
+    'xl',
+    'lg',
+    'md',
+    'sm',
+    'xs'
+];
+var Col = /*#__PURE__*/ _reactDefault.default.forwardRef(function(_ref, ref) {
+    var bsPrefix = _ref.bsPrefix, className = _ref.className, _ref$as = _ref.as, Component = _ref$as === void 0 ? 'div' : _ref$as, props = _objectWithoutPropertiesLooseDefault.default(_ref, _excluded);
+    var prefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'col');
+    var spans = [];
+    var classes = [];
+    DEVICE_SIZES.forEach(function(brkPoint) {
+        var propValue = props[brkPoint];
+        delete props[brkPoint];
+        var span;
+        var offset;
+        var order;
+        if (typeof propValue === 'object' && propValue != null) {
+            var _propValue$span = propValue.span;
+            span = _propValue$span === void 0 ? true : _propValue$span;
+            offset = propValue.offset;
+            order = propValue.order;
+        } else span = propValue;
+        var infix = brkPoint !== 'xs' ? "-" + brkPoint : '';
+        if (span) spans.push(span === true ? "" + prefix + infix : "" + prefix + infix + "-" + span);
+        if (order != null) classes.push("order" + infix + "-" + order);
+        if (offset != null) classes.push("offset" + infix + "-" + offset);
+    });
+    if (!spans.length) spans.push(prefix); // plain 'col'
+    return(/*#__PURE__*/ _reactDefault.default.createElement(Component, _extendsDefault.default({
+    }, props, {
+        ref: ref,
+        className: _classnamesDefault.default.apply(void 0, [
+            className
+        ].concat(spans, classes))
+    })));
+});
+Col.displayName = 'Col';
+exports.default = Col;
 
 },{"@babel/runtime/helpers/esm/extends":"bKAu6","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"3Rubg","classnames":"bOXOh","react":"6TuXu","./ThemeProvider":"eeqfi","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply"}],"kKVYG":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -25808,7 +25866,14 @@ printWarning = function(text) {
 };
 module.exports = checkPropTypes;
 
-},{"./lib/ReactPropTypesSecret":"lYuBM"}],"5k0mc":[function(require,module,exports) {
+},{"./lib/ReactPropTypesSecret":"lYuBM"}],"kZGsF":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _createWithBsPrefix = require("./createWithBsPrefix");
+var _createWithBsPrefixDefault = parcelHelpers.interopDefault(_createWithBsPrefix);
+exports.default = _createWithBsPrefixDefault.default('card-columns');
+
+},{"./createWithBsPrefix":"8AqEH","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply"}],"5k0mc":[function(require,module,exports) {
 "use strict";
 var Refresh = require('react-refresh/runtime');
 function debounce(func, delay) {
@@ -25928,72 +25993,7 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"kKPuG"}],"fbam0":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _extends = require("@babel/runtime/helpers/esm/extends");
-var _extendsDefault = parcelHelpers.interopDefault(_extends);
-var _objectWithoutPropertiesLoose = require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose");
-var _objectWithoutPropertiesLooseDefault = parcelHelpers.interopDefault(_objectWithoutPropertiesLoose);
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _themeProvider = require("./ThemeProvider");
-var _excluded = [
-    "bsPrefix",
-    "className",
-    "as"
-];
-var DEVICE_SIZES = [
-    'xl',
-    'lg',
-    'md',
-    'sm',
-    'xs'
-];
-var Col = /*#__PURE__*/ _reactDefault.default.forwardRef(function(_ref, ref) {
-    var bsPrefix = _ref.bsPrefix, className = _ref.className, _ref$as = _ref.as, Component = _ref$as === void 0 ? 'div' : _ref$as, props = _objectWithoutPropertiesLooseDefault.default(_ref, _excluded);
-    var prefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'col');
-    var spans = [];
-    var classes = [];
-    DEVICE_SIZES.forEach(function(brkPoint) {
-        var propValue = props[brkPoint];
-        delete props[brkPoint];
-        var span;
-        var offset;
-        var order;
-        if (typeof propValue === 'object' && propValue != null) {
-            var _propValue$span = propValue.span;
-            span = _propValue$span === void 0 ? true : _propValue$span;
-            offset = propValue.offset;
-            order = propValue.order;
-        } else span = propValue;
-        var infix = brkPoint !== 'xs' ? "-" + brkPoint : '';
-        if (span) spans.push(span === true ? "" + prefix + infix : "" + prefix + infix + "-" + span);
-        if (order != null) classes.push("order" + infix + "-" + order);
-        if (offset != null) classes.push("offset" + infix + "-" + offset);
-    });
-    if (!spans.length) spans.push(prefix); // plain 'col'
-    return(/*#__PURE__*/ _reactDefault.default.createElement(Component, _extendsDefault.default({
-    }, props, {
-        ref: ref,
-        className: _classnamesDefault.default.apply(void 0, [
-            className
-        ].concat(spans, classes))
-    })));
-});
-Col.displayName = 'Col';
-exports.default = Col;
-
-},{"@babel/runtime/helpers/esm/extends":"bKAu6","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"3Rubg","classnames":"bOXOh","react":"6TuXu","./ThemeProvider":"eeqfi","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply"}],"kZGsF":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _createWithBsPrefix = require("./createWithBsPrefix");
-var _createWithBsPrefixDefault = parcelHelpers.interopDefault(_createWithBsPrefix);
-exports.default = _createWithBsPrefixDefault.default('card-columns');
-
-},{"./createWithBsPrefix":"8AqEH","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply"}],"ikZdr":[function(require,module,exports) {
+},{"react-refresh/runtime":"kKPuG"}],"ikZdr":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3741 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -26262,7 +26262,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","react-bootstrap/Form":"5ykgY","react-bootstrap/Button":"9CzHT","./login-view.scss":"lS4BK","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5k0mc","axios":"iYoWk"}],"5ykgY":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","react-bootstrap/Form":"5ykgY","react-bootstrap/Button":"9CzHT","axios":"iYoWk","./login-view.scss":"lS4BK","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5k0mc"}],"5ykgY":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _extends = require("@babel/runtime/helpers/esm/extends");
