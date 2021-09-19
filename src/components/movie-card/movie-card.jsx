@@ -15,7 +15,7 @@ export class MovieCard extends React.Component {
      <CardColumns>
       <Card border="light" className="card-container movie-card mb-2 " >
       <Col xs={12} md={10} className="image-size justify-content-md-center">
-        <Card.Img variant="top" src={movie.ImagePath} fluid />
+        <Card.Img variant="top" src={movie.ImagePath}/>
         </Col>
         <Card.Body className="card p-0"  style={{ width: '11rem', }}>
           <Card.Title>{movie.Title}</Card.Title>
