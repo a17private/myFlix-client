@@ -59,6 +59,15 @@ export class MainView extends React.Component {
     }
 
 
+    onLoggedOut() {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      this.setState({
+        user: null
+      });
+    }
+
+
     getMovies(token) {
       axios.get('https://myflixdb17.herokuapp.com/movies', {
         headers: { Authorization: `Bearer ${token}`}
@@ -89,6 +98,9 @@ export class MainView extends React.Component {
     return (
       <RegistrationView onRegistration={(user) => this.onRegistration(user)}/>
     );
+
+
+    <button onClick={() => { this.onLoggedOut() }}>Logout</button>
   
       
     // Before the movies have been loaded
