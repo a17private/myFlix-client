@@ -4,8 +4,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/Button";
-import Navbar from 'react-bootstrap/Navbar'
-
+import Navbar from 'react-bootstrap/Navbar';
+import axios from 'axios';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown  from 'react-bootstrap/NavDropdown';
 
 
 
@@ -25,10 +28,10 @@ export function RegistrationView(props) {
   const [passwordError, setPasswordError] = useState({});
   const [emailError, setEmailError] = useState({});
   const [birthdateError, setBirthdateError] = useState({});
- 
-  
 
-  
+
+ 
+
  
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -89,6 +92,25 @@ export function RegistrationView(props) {
 
 
   return (
+
+    <Navbar bg="dark" variant="dark" expand="lg">
+ <Container>
+    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="me-auto">
+        <Nav.Link href="#home">Home</Nav.Link>
+        <Nav.Link href="#link">Link</Nav.Link>
+        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+          <NavDropdown.Item href="#action/3.1">User</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+         </NavDropdown>
+      </Nav>
+    </Navbar.Collapse>
+  </Container>
+</Navbar>
+
+  ,
    
    <Form>
       <Form.Group controlId="formUsername">
