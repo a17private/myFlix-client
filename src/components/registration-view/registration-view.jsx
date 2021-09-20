@@ -92,7 +92,7 @@ export function RegistrationView(props) {
 
   return (
 
-    <Navbar bg="dark" variant="dark" expand="lg">
+    /*<Navbar bg="dark" variant="dark" expand="lg">
  <Container>
     <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -108,9 +108,8 @@ export function RegistrationView(props) {
     </Navbar.Collapse>
   </Container>
 </Navbar>
+*/
 
-  ,
-   
    <Form>
       <Form.Group controlId="formUsername">
         <Form.Label>Username:</Form.Label>
