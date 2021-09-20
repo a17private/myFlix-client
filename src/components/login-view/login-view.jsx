@@ -48,8 +48,11 @@ export function LoginView(props) {
         <Form.Label>Password:</Form.Label>
         <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
       </Form.Group>
-      <Button variant="primary" type="submit" onClick={handleSubmit}>
+      <Button variant="dark" size="sm" type="submit" onClick={handleSubmit}>
         Submit
+      </Button>
+      <Button variant="dark" size="sm" type="submit" onClick={handleSubmit}>
+        Register
       </Button>
     </Form>
   );
