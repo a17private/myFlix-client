@@ -38,7 +38,6 @@ export function RegistrationView(props) {
     let setisValid = formValidation();
     if (setisValid) {
       axios.post('https://myflixdb17.herokuapp.com/users', {
-        Name: name,
         Username: username,
         Password: password,
         Email: email,
