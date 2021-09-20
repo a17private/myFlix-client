@@ -27144,13 +27144,25 @@ function RegistrationView(props) {
     const [birthdate, setBirthdate] = _react.useState("");
     const handleSubmit = (e)=>{
         e.preventDefault();
-        console.log(username, password, email, birthdate);
-        props.onRegistration(username);
+        let setisValid = formValidation();
+        if (setisValid) axios.post('https://myflixdb17.herokuapp.com/users', {
+            Name: name,
+            Username: username,
+            Password: password,
+            Email: email,
+            Birthdate: birthdate
+        }).then((response)=>{
+            const data = response.data;
+            console.log(data);
+            window.open('/', '_self'); // the second argument '_self' is necessary so that the page will open in the current tab
+        }).catch((e1)=>{
+            console.log('error registering the user');
+        });
     };
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default, {
         __source: {
             fileName: "src/components/registration-view/registration-view.jsx",
-            lineNumber: 29
+            lineNumber: 45
         },
         __self: this,
         children: [
@@ -27158,14 +27170,14 @@ function RegistrationView(props) {
                 controlId: "formUsername",
                 __source: {
                     fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 30
+                    lineNumber: 46
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 31
+                            lineNumber: 47
                         },
                         __self: this,
                         children: "Username:"
@@ -27176,7 +27188,7 @@ function RegistrationView(props) {
                         ,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 32
+                            lineNumber: 48
                         },
                         __self: this
                     })
@@ -27186,14 +27198,14 @@ function RegistrationView(props) {
                 controlId: "formPassword",
                 __source: {
                     fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 34
+                    lineNumber: 50
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 35
+                            lineNumber: 51
                         },
                         __self: this,
                         children: "Password:"
@@ -27204,7 +27216,7 @@ function RegistrationView(props) {
                         ,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 36
+                            lineNumber: 52
                         },
                         __self: this
                     })
@@ -27214,14 +27226,14 @@ function RegistrationView(props) {
                 controlId: "formEmail",
                 __source: {
                     fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 38
+                    lineNumber: 54
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 39
+                            lineNumber: 55
                         },
                         __self: this,
                         children: "Email:"
@@ -27232,7 +27244,7 @@ function RegistrationView(props) {
                         ,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 40
+                            lineNumber: 56
                         },
                         __self: this
                     })
@@ -27242,14 +27254,14 @@ function RegistrationView(props) {
                 controlId: "formBirthdate",
                 __source: {
                     fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 42
+                    lineNumber: 58
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 43
+                            lineNumber: 59
                         },
                         __self: this,
                         children: "Birthdate:"
@@ -27260,7 +27272,7 @@ function RegistrationView(props) {
                         ,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 44
+                            lineNumber: 60
                         },
                         __self: this
                     })
@@ -27272,7 +27284,7 @@ function RegistrationView(props) {
                 onClick: handleSubmit,
                 __source: {
                     fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 46
+                    lineNumber: 62
                 },
                 __self: this,
                 children: "Register"
