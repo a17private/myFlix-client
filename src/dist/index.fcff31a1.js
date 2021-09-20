@@ -27165,18 +27165,12 @@ function RegistrationView(props) {
     const [password, setPassword] = _react.useState("");
     const [email, setEmail] = _react.useState("");
     const [birthdate, setBirthdate] = _react.useState("");
-    const [usernameError, setUsernameError] = _react.useState({
-    });
-    const [passwordError, setPasswordError] = _react.useState({
-    });
-    const [emailError, setEmailError] = _react.useState({
-    });
-    const [birthdateError, setBirthdateError] = _react.useState({
-    });
-    const handleSubmit = (e)=>{
+    /* const [usernameError, setUsernameError] = useState({});
+  const [passwordError, setPasswordError] = useState({});
+  const [emailError, setEmailError] = useState({});
+  const [birthdateError, setBirthdateError] = useState({});*/ const handleSubmit = (e)=>{
         e.preventDefault();
-        let setisValid = formValidation();
-        if (setisValid) _axiosDefault.default.post('https://myflixdb17.herokuapp.com/users', {
+        /* let setisValid = formValidation();*/ /* if (setisValid) {*/ _axiosDefault.default.post('https://myflixdb17.herokuapp.com/users', {
             Username: username,
             Password: password,
             Email: email,
@@ -27188,40 +27182,37 @@ function RegistrationView(props) {
         }).catch((e1)=>{
             console.log('error registering the user');
         });
-    };
-    const formValidation = ()=>{
-        let usernameError1 = {
-        };
-        let passwordError1 = {
-        };
-        let emailError1 = {
-        };
-        let birthdateError1 = {
-        };
-        let isValid = true;
-        if (username.trim().length < 4) {
-            usernameError1.usernameShort = "Username incorrect. Use at least 4 characters.";
-            isValid = false;
-        }
-        if (password.trim().length < 5) {
-            passwordError1.passwordMissing = "Password incorrect. Use at least 5 characters.";
-            isValid = false;
-        }
-        if (!(email && email.includes(".") && email.includes("@"))) {
-            emailError1.emailNotEmail = "Email address incorrect.";
-            isValid = false;
-        }
-        if (birthdate === '') {
-            birthdateError1.birthdateEmpty = "Please enter your birthdate.";
-            isValid = false;
-        }
-        setUsernameError(usernameError1);
-        setPasswordError(passwordError1);
-        setEmailError(emailError1);
-        setBirthdateError(birthdateError1);
-        return isValid;
-    };
-    return(/*<Navbar bg="dark" variant="dark" expand="lg">
+    /*};*/ };
+    /*const formValidation = () => {
+    let usernameError = {};
+    let passwordError = {};
+    let emailError = {};
+    let birthdateError = {};
+    let isValid = true;
+
+    if (username.trim().length < 4) {
+      usernameError.usernameShort = "Username incorrect. Use at least 4 characters.";
+      isValid = false;
+    }
+    if (password.trim().length < 5) {
+      passwordError.passwordMissing = "Password incorrect. Use at least 5 characters.";
+      isValid = false;
+    }
+    if (!(email && email.includes(".") && email.includes("@"))) {
+      emailError.emailNotEmail = "Email address incorrect.";
+      isValid = false;
+    }
+    if (birthdate === '') {
+      birthdateError.birthdateEmpty = "Please enter your birthdate.";
+      isValid = false;
+    }
+  
+    setUsernameError(usernameError);
+    setPasswordError(passwordError);
+    setEmailError(emailError);
+    setBirthdateError(birthdateError);
+    return isValid;
+  };*/ return(/*<Navbar bg="dark" variant="dark" expand="lg">
  <Container>
     <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -27379,7 +27370,7 @@ function RegistrationView(props) {
         ]
     }));
 }
-_s(RegistrationView, "y8aNTvbnvxRZLCbwx04pxT+hUs8=");
+_s(RegistrationView, "RIZRq4jE1cgzcLOHGIpSeTDhd80=");
 _c = RegistrationView;
 RegistrationView.propTypes = {
     register: _propTypesDefault.default.shape({
@@ -27398,7 +27389,7 @@ $RefreshReg$(_c, "RegistrationView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","react-bootstrap/Form":"5ykgY","react-bootstrap/Button":"9CzHT","./registration-view.scss":"fr9ZP","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5k0mc","react-bootstrap/Navbar":"eYZQl","axios":"iYoWk","react-bootstrap/Container":"2PRIq","react-bootstrap/Nav":"io07g","react-bootstrap/NavDropdown":"6IluF"}],"fr9ZP":[function() {},{}],"eYZQl":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","react-bootstrap/Form":"5ykgY","react-bootstrap/Button":"9CzHT","react-bootstrap/Navbar":"eYZQl","axios":"iYoWk","react-bootstrap/Container":"2PRIq","react-bootstrap/Nav":"io07g","react-bootstrap/NavDropdown":"6IluF","./registration-view.scss":"fr9ZP","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5k0mc"}],"eYZQl":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _extends = require("@babel/runtime/helpers/esm/extends");
@@ -33120,7 +33111,7 @@ function isRequiredForA11y(validator) {
 }
 module.exports = exports['default'];
 
-},{}],"h2YVd":[function(require,module,exports) {
+},{}],"fr9ZP":[function() {},{}],"h2YVd":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Accordion", ()=>_accordionDefault.default
