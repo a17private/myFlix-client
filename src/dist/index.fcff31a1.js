@@ -22843,18 +22843,7 @@ class MainView extends _reactDefault.default.Component {
             },
             __self: this
         }));
-        /*#__PURE__*/ _jsxRuntime.jsx("button", {
-            onClick: ()=>{
-                this.onLoggedOut();
-            },
-            __source: {
-                fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 103
-            },
-            __self: this,
-            children: "Logout"
-        });
-        // Before the movies have been loaded
+        /*<button onClick={() => { this.onLoggedOut() }}>Logout</button>*/ // Before the movies have been loaded
         if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
             className: "main-view",
             __source: {

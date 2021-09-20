@@ -100,7 +100,7 @@ export class MainView extends React.Component {
     );
 
 
-    <button onClick={() => { this.onLoggedOut() }}>Logout</button>
+    /*<button onClick={() => { this.onLoggedOut() }}>Logout</button>*/
   
       
     // Before the movies have been loaded
