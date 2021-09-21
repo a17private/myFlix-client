@@ -18,60 +18,52 @@ export class MainView extends React.Component {
     //initial state is set to null
     this.state = {
       movies: [],
-      selectedMovie: null,
-      user: null,
-      register: null,
+      selectedMovie: null
     };
   }
    
    
-    componentDidMount(){
-      axios.get('https://myflixdb17.herokuapp.com/movies')
-        .then(response => {
-          this.setState({
-            movies: response.data
-          });
-        })
-        .catch(error => {
-          console.log(error);
-        });
+
+
+  componentDidMount() {
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem('user')
+      });
+      this.getMovies(accessToken);
     }
+  }
        
-    setSelectedMovie(movie) {
-      this.setState({
-        selectedMovie: movie
-      });
-    }
-
-   /* onRegistration(register) {
-      this.setState({
-        register,
-      });
-    }*/
-
-    onLoggedIn(user) {
-      this.setState({
-        user
-      });
-    }
     
-    render() {
-      const { movies, user, register, selectedMovie } = this.state;
-
-     
-    
-    if (!user)
-    return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
 
 
-
-
-    /*if (!register)
-    return (
-      <RegistrationView onRegistration={(user) => this.onRegistration(user)}/>
-    );*/
   
-      
+
+
+    getMovies(token) {
+      axios.get('https://myflixdb17.herokuapp.com/movies', {
+        headers: { Authorization: `Bearer ${token}`}
+      })
+      .then(response => {
+        // Assign the result to the state
+        this.setState({
+          movies: response.data
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });s 
+    }
+    
+   
+   
+   
+   
+   
+    render() {
+      const { movies, selectedMovie } = this.state;
+
     // Before the movies have been loaded
     if (movies.length === 0) return <div className="main-view" />;
   

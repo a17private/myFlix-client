@@ -21,21 +21,6 @@ export function LoginView(props) {
     props.onLoggedIn(username)
   }; 
   
-  /*const handleSubmit = (e) => {
-    e.preventDefault();
-    /* Send a request to the server for authentication */
-    /*axios.post('https://myflixdb17.herokuapp.com/login', {
-      Username: username,
-      Password: password
-    })
-    .then(response => {
-      const data = response.data;
-      props.onLoggedIn(data);
-    })
-    .catch(e => {
-      console.log('no such user')
-    });
-  };*/
 
   return (
 
@@ -52,7 +37,7 @@ export function LoginView(props) {
       <Button variant="dark" size="sm" type="submit" onClick={handleSubmit}>
         Submit
       </Button>
-      <Button variant="dark" size="sm" type="submit" onClick={handleSubmit}>
+      <Button variant="dark" size="sm" type="submit">
         Register
       </Button>
     </Form>
