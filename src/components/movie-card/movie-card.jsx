@@ -1,30 +1,39 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Image from "react-bootstrap/Image";
-import CardColumns from 'react-bootstrap/CardColumns'
+
+
+import { Link } from "react-router-dom";
+
+import "./movie-card.scss";
+
 
 export class MovieCard extends React.Component {
+
   render() {
-    const { movie, onMovieClick } = this.props;
+    const { movie } = this.props;
 
     return (
-    <Row className="main-view justify-content-md-center">
-     <CardColumns>
-      <Card border="light" className="card-container movie-card mb-2 " >
-      <Col xs={12} md={10} className="image-size justify-content-md-center">
-        <Card.Img variant="top" src={movie.ImagePath}/>
-        </Col>
-        <Card.Body className="card p-0"  style={{ width: '11rem', }}>
+      <Card>
+        <Card.Img variant="top" src={movie.ImagePath} />
+        <Card.Body>
           <Card.Title>{movie.Title}</Card.Title>
           <Card.Text>{movie.Description}</Card.Text>
-          <Button onClick={() => onMovieClick(movie)} variant="link">Open</Button>
+          <Link to={`/movies/${movie._id}`}>
+            <Button variant="link">Open</Button>
+          </Link>
         </Card.Body>
       </Card>
-      </CardColumns>
-    </Row>
     );
   }
-}
+}         
+
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    Title: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
+    ImageURL: PropTypes.string.isRequired,
+    Featured: PropTypes.bool.isRequired,
+  }).isRequired,
+};
