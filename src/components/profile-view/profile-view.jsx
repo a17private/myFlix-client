@@ -61,7 +61,7 @@ export class ProfileView extends React.Component {
 
     axios
       .delete('https://myflixdb17.herokuapp.com/users/${username}/movies/${movie._id}', {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { Authorization: 'Bearer ${token}' },
       })
       .then(() => {
         alert('Movie was removed');

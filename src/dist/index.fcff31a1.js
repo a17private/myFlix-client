@@ -40536,7 +40536,7 @@ class ProfileView extends _reactDefault.default.Component {
         const username = localStorage.getItem('user');
         _axiosDefault.default.delete('https://myflixdb17.herokuapp.com/users/${username}/movies/${movie._id}', {
             headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: 'Bearer ${token}'
             }
         }).then(()=>{
             alert('Movie was removed');
