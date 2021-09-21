@@ -13,13 +13,10 @@ export function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
 
-  /*const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(username, password);
-    /* Send a request to the server for authentication */
-    /* then call props.onLoggedIn(username), which provides the username to our parent component (child to parent communication) */
-   /* props.onLoggedIn(username)
-  };*/ 
+  const [usernameError, setUsernameError] = useState({});
+  const [passwordError, setPasswordError] = useState({});
+
+
   
   const handleSubmit = (e) => {
     e.preventDefault();
