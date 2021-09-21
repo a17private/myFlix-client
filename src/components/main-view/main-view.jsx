@@ -43,11 +43,11 @@ export class MainView extends React.Component {
       });
     }
 
-    onRegistration(register) {
+   /* onRegistration(register) {
       this.setState({
         register,
       });
-    }
+    }*/
 
     onLoggedIn(user) {
       this.setState({
@@ -66,10 +66,10 @@ export class MainView extends React.Component {
 
 
 
-    if (!register)
+    /*if (!register)
     return (
       <RegistrationView onRegistration={(user) => this.onRegistration(user)}/>
-    );
+    );*/
   
       
     // Before the movies have been loaded
