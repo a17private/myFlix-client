@@ -1,6 +1,5 @@
 import React from 'react';
-import axios from 'axios';
-
+import axios from 'axios';// Using it to fetch the movies, then set the state of movies using this.setState
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import { MovieCard } from '../movie-card/movie-card';
@@ -13,86 +12,76 @@ import Col from 'react-bootstrap/Col';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { ProfileView } from '../profile-view/profile-view';
+
+
 import NavBar from '../navbar-view/navbar-view'
 
+
+// SCSS Styling import
 import './main-view.scss';
+
 
 export class MainView extends React.Component {
 
-  constructor() {
-    super();
-
-    this.state = {
-      movies: [],
-      user: null,
-    };
-  }
-
- 
-  componentDidMount() {
-    let accessToken = localStorage.getItem('token');
-    if (accessToken !== null) {
-      this.setState({
-        user: localStorage.getItem('user')
-      });
-      this.getMovies(accessToken);
+    constructor() { //The method that React uses to actually create the component
+        super(); // This will call the parent React.Component’s constructor, which will give your class the actual React component’s features. Also, it will initialize the component’s this variable
+        this.state = {
+            movies: [],
+            user: null,
+          };    
     }
-  }
 
-  onLoggedOut() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    this.setState({
-      user: null
-    });
-  }
+    componentDidMount(){
+      let accessToken = localStorage.getItem('token');
+      if (accessToken !== null) {
+        this.setState({
+          user: localStorage.getItem('user')
+        });
+        this.getMovies(accessToken);
+      }
+    }
 
-  // Log In
-onLoggedIn(authData) {
-  console.log(authData);
-  this.setState({
-    user: authData.user.Username
-  });
-
-
-  localStorage.setItem('token', authData.token);
-  localStorage.setItem('user', authData.user.Username);
-  this.getMovies(authData.token);
-}
-
-
-
-
-onRegistration(register) {
-  this.setState({
-    register: register,
-  });
-}
-
-
-
-
-  getMovies(token) {
-    axios.get('https://myflixdb17.herokuapp.com/movies', {
-      headers: { Authorization: `Bearer ${token}`}
-    })
-    .then(response => {
-      // Assign the result to the state
+    onLoggedOut() {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
       this.setState({
-        movies: response.data
+        user: null
       });
-    })
-    .catch(function (error) {
-      console.log(error);
+    }
+
+    // Log In
+  onLoggedIn(authData) {
+    console.log(authData);
+    this.setState({
+      user: authData.user.Username
     });
+
+
+    localStorage.setItem('token', authData.token);
+    localStorage.setItem('user', authData.user.Username);
+    this.getMovies(authData.token);
   }
 
-
-
-
+    // Getting all movies in Database
+    getMovies(token) {
+      axios.get('https://myflixdb17.herokuapp.com/movies', {
+        headers: { Authorization: `Bearer ${token}` }//By passing bearer authorization in the header of your HTTP requests, you can make authenticated requests to your API
+      })
+        .then(response => {
+          // Assigning the result to the state
+          this.setState({
+            movies: response.data
+          });
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+  
+  //  Getting user recent data from Database
   getUsers(token) {
     axios.post('https://myflixdb17.herokuapp.com/users', {
-      headers: { Authorization: 'Bearer ${token}' }
+      headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
         // Assign the result to the state
@@ -106,18 +95,21 @@ onRegistration(register) {
       });
   }
 
+  //When a new user is registered  
+  onRegister(register) {
+    this.setState({
+      register: register,
+    });
+  }
 
-
-  render() {
-    const { movies, user} = this.state;
-    // If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView
-    console.log("render", user);
+    render() {
+        const { movies, user} = this.state;
+         // If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView
+         console.log("render", user);
 
   
-    if (movies.length === 0) return <div className="main-view" />;
-
-    return (
-      <Router>
+      return (
+          <Router>
             <NavBar user={user} />
     
             <Row className="main-view justify-content-md-center">
@@ -203,3 +195,4 @@ onRegistration(register) {
 
 
   export default MainView;
+
