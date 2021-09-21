@@ -30,7 +30,7 @@ export class MovieView extends React.Component {
     return (
       <div className="movie-view">
       <div className="movie-poster">
-      <img src={movie.ImageURL} />
+      <img src={movie.ImagePath} />
       </div>
       <div className="movie-title">
         <h1>
@@ -53,10 +53,10 @@ export class MovieView extends React.Component {
         </Link>
         <span className="value">{movie.Director.Name}</span>
       </div>
-      <Button variant='danger' className="fav-button" value={movie._id} onClick={(e) => this.addFavorite(e, movie)}>
-        Add to Favorites
+      <Button variant='dark' className="fav-button" value={movie._id} onClick={(e) => this.addFavorite(e, movie)}>
+         Favourite 
       </Button>
-      <Button variant="primary" onClick={() => 
+      <Button variant="dark" onClick={() => 
         { onBackClick(null); }}>Back</Button>
       </div>
   );
@@ -68,7 +68,7 @@ MovieView.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,
     Description: PropTypes.string.isRequired,
-    ImageURL: PropTypes.string.isRequired,
+    ImagePath: PropTypes.string.isRequired,
     Featured: PropTypes.bool.isRequired,
     Genre: PropTypes.shape({
       Name: PropTypes.string.isRequired
