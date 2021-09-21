@@ -26218,7 +26218,7 @@ function LoginView(props) {
                     lineNumber: 37
                 },
                 __self: this,
-                children: "Submit"
+                children: "Sign in"
             }),
             /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
                 variant: "dark",
@@ -26229,7 +26229,7 @@ function LoginView(props) {
                     lineNumber: 40
                 },
                 __self: this,
-                children: "Register"
+                children: "Join"
             })
         ]
     }));
