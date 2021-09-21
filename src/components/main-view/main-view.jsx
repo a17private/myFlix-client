@@ -18,52 +18,50 @@ export class MainView extends React.Component {
     //initial state is set to null
     this.state = {
       movies: [],
-      selectedMovie: null
+      selectedMovie: null,
+      user: null
     };
   }
    
    
-
-
-  componentDidMount() {
-    let accessToken = localStorage.getItem('token');
-    if (accessToken !== null) {
-      this.setState({
-        user: localStorage.getItem('user')
-      });
-      this.getMovies(accessToken);
+    componentDidMount(){
+      axios.get('https://myflixdb17.herokuapp.com/movies')
+        .then(response => {
+          this.setState({
+            movies: response.data
+          });
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
-  }
        
+    setSelectedMovie(movie) {
+      this.setState({
+        selectedMovie: movie
+      });
+    }
+
+  
+    onLoggedIn(user) {
+      this.setState({
+        user
+      });
+    }
     
+
+
+    render() {
+      const { movies, user, selectedMovie } = this.state;
+
+     
+    
+    if (!user)
+    return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
 
 
   
-
-
-    getMovies(token) {
-      axios.get('https://myflixdb17.herokuapp.com/movies', {
-        headers: { Authorization: `Bearer ${token}`}
-      })
-      .then(response => {
-        // Assign the result to the state
-        this.setState({
-          movies: response.data
-        });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });s 
-    }
-    
-   
-   
-   
-   
-   
-    render() {
-      const { movies, selectedMovie } = this.state;
-
+      
     // Before the movies have been loaded
     if (movies.length === 0) return <div className="main-view" />;
   
