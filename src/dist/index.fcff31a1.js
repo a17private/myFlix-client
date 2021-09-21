@@ -26013,8 +26013,6 @@ class MovieView extends _reactDefault.default.Component {
             __self: this,
             children: [
                 /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-                    xs: 6,
-                    md: 4,
                     className: "movie-poster",
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
@@ -26023,7 +26021,6 @@ class MovieView extends _reactDefault.default.Component {
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
                         src: movie.ImagePath,
-                        rounded: true,
                         __source: {
                             fileName: "src/components/movie-view/movie-view.jsx",
                             lineNumber: 20
