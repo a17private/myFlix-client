@@ -38,7 +38,7 @@ export class NavBar extends React.Component {
             </Nav.Link>
 
             <Nav.Link to={'/'} onClick={this.onLoggedOut}>
-              Log Out
+              Logout
             </Nav.Link>
 
           </Nav>

@@ -165,6 +165,7 @@ export class ProfileView extends React.Component {
     return (
         <Row className="profile-view">
         <Card className="profile-card">
+        <Card.Body>
           <h2>Favorites</h2>
           <Card.Body>
             {FavoriteMovies.length === 0 && <h6 className="text-center">Add a favourite! </h6>}
@@ -190,8 +191,10 @@ export class ProfileView extends React.Component {
                 })}
             </div>
           </Card.Body>
-
-          <h2 className="section">Update Profile</h2>
+         </Card.Body>
+        
+        
+          <h2 className="section">Edit profile</h2>
           <Card.Body>
             <Form noValidate validated={validated} className="update-form" onSubmit={(e) => this.handleUpdate(e, this.Name, this.Username, this.Password, this.Email, this.Birthdate)}>
 
@@ -218,21 +221,29 @@ export class ProfileView extends React.Component {
               </Form.Group>
 
               <Form.Group controlId="formBasicBirthday">
-                <Form.Label className="form-label">Birthdate</Form.Label>
+                <Form.Label className="form-label">Birthday</Form.Label>
                 <Form.Control type="date" placeholder="Change Birthdate" onChange={(e) => this.setBirthdate(e.target.value)} />
               </Form.Group>
-
+              
+             
               <Button variant='dark' size="sm" type="submit">
                 Update
               </Button>
+            
+                       
+            
+              
 
-              <h6>Delete account</h6>
-              <Card.Body>
-                <Button variant='danger' size="sm" onClick={(e) => 
+             
+                <Card.Body>
+                <h6>Delete account</h6>
+                 <Button variant='danger' size="sm" onClick={(e) => 
                   this.handleDeleteUser(e)}>
                   Delete account
-                </Button>
+                 </Button>
               </Card.Body>
+           
+          
             </Form>
 
           </Card.Body>
