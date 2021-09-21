@@ -25,8 +25,7 @@ export function RegistrationView(props) {
   };
 
   return (
-   
-   <Form>
+      <Form>
       <Form.Group controlId="formUsername">
         <Form.Label>Username:</Form.Label>
         <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
@@ -35,20 +34,15 @@ export function RegistrationView(props) {
         <Form.Label>Password:</Form.Label>
         <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
       </Form.Group>
-      <Form.Group controlId="formEmail">
-        <Form.Label>Email:</Form.Label>
-        <Form.Control type="email" onChange={e => setEmail(e.target.value)} />
-      </Form.Group>
-      <Form.Group controlId="formBirthdate">
-        <Form.Label>Birthdate:</Form.Label>
-        <Form.Control type="date" onChange={e => setBirthdate(e.target.value)} />
-      </Form.Group>
-        <Button variant="primary" type="submit" onClick={handleSubmit}>
+      <Button variant="dark" size="sm" type="submit" onClick={handleSubmit}>
+        Submit
+      </Button>
+      <Button variant="dark" size="sm" type="submit" onClick={handleSubmit}>
         Register
       </Button>
     </Form>
-
   );
+
 }
 
 RegistrationView.propTypes = {
