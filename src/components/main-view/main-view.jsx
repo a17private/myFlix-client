@@ -10,6 +10,7 @@ import { RegistrationView } from '../registration-view/registration-view';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { ProfileView } from '../profile-view/profile-view';
+import { GenreView } from '../genre-view/genre-view';
 
 
 import NavBar from '../navbar-view/navbar-view'
@@ -172,7 +173,7 @@ export class MainView extends React.Component {
             </Col>
             if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
-              <MovieView genre={movies.find(m => 
+              <GenreView genre={movies.find(m => 
               m.Genre.Name === match.params.name).Genre} onBackClick={() => 
                 history.goBack()} />
             </Col>

@@ -4,7 +4,7 @@ import Button from 'react-bootstrap';
 
 
 
-export class MovieView extends React.Component {
+export class GenreView extends React.Component {
 
   render() {
     const { movie, onBackClick } = this.props;
@@ -29,12 +29,14 @@ export class MovieView extends React.Component {
 }
 
 
-MovieView.propTypes = {
-  genre: propTypes.shape({
-    Name: propTypes.string.isRequired,
-    Description: propTypes.string.isRequired
-  }).isRequired
+GenreView.propTypes = {
+  movie: propTypes.shape({
+    Genre: propTypes.shape({
+      Name: propTypes.string.isRequired,
+      Description: propTypes.string.isRequired
+    }),
+   }).isRequired
 };
 
 
-export default MovieView; 
+export default GenreView; 
