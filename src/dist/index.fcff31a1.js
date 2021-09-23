@@ -30052,8 +30052,8 @@ class ProfileView extends _reactDefault.default.Component {
     }
     //getting user method
     getUser(token) {
-        const username = localStorage.getItem('user');
-        _axiosDefault.default.get(`https://myflixdb17.herokuapp.com/users/${username}`, {
+        const Username = localStorage.getItem('user');
+        _axiosDefault.default.get(`https://myflixdb17.herokuapp.com/users/${Username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -30071,8 +30071,8 @@ class ProfileView extends _reactDefault.default.Component {
     }
     removeFavouriteMovie() {
         const token = localStorage.getItem('token');
-        const username = localStorage.getItem('user');
-        _axiosDefault.default.delete(`https://myflixdb17.herokuapp.com/users/${username}/movies/${movie._id}`, {
+        const Username = localStorage.getItem('user');
+        _axiosDefault.default.delete(`https://myflixdb17.herokuapp.com/users/${Username}/movies/${movie._id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -30099,8 +30099,8 @@ class ProfileView extends _reactDefault.default.Component {
         }
         e.preventDefault();
         const token = localStorage.getItem('token');
-        const username = localStorage.getItem('user');
-        _axiosDefault.default.put(`https://myflixdb17.herokuapp.com/users/${username}`, {
+        const Username = localStorage.getItem('user');
+        _axiosDefault.default.put(`https://myflixdb17.herokuapp.com/users/${Username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             },
@@ -30139,8 +30139,8 @@ class ProfileView extends _reactDefault.default.Component {
     handleDeleteUser(e) {
         e.preventDefault();
         const token = localStorage.getItem('token');
-        const username = localStorage.getItem('user');
-        _axiosDefault.default.delete(`https://myflixdb17.herokuapp.com/users/${username}`, {
+        const Username = localStorage.getItem('user');
+        _axiosDefault.default.delete(`https://myflixdb17.herokuapp.com/users/${Username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
