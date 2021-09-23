@@ -1,15 +1,15 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import { Button } from 'react-bootstrap';
-import { Card } from 'react-bootstrap';
-import { CardDeck } from 'react-bootstrap';
-import { Form } from 'react-bootstrap';
-import { Row } from 'react-bootstrap';
+import  Button  from 'react-bootstrap';
+import  Card  from 'react-bootstrap';
+import  CardDeck  from 'react-bootstrap';
+import  Form  from 'react-bootstrap';
+import  Row  from 'react-bootstrap';
 
 import './profile-view.scss';
 
-export class ProfileView extends React.Component {
+class ProfileView extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,7 +34,7 @@ export class ProfileView extends React.Component {
   //getting user method
   getUser(token) {
     const username = localStorage.getItem('user');
-    axios.get('https://myflixdb17.herokuapp.com/users/${username}', {
+    axios.get(`https://myflixdb17.herokuapp.com/users/${username}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => {
@@ -58,7 +58,7 @@ export class ProfileView extends React.Component {
 
 
     axios
-      .delete('https://myflixdb17.herokuapp.com/users/${username}/movies/${movie._id}', {
+      .delete(`https://myflixdb17.herokuapp.com/users/${username}/movies/${movie._id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
@@ -90,7 +90,7 @@ export class ProfileView extends React.Component {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
 
-    axios.put('https://myflixdb17.herokuapp.com/users/${username}', {
+    axios.put(`https://myflixdb17.herokuapp.com/users/${username}`, {
       headers: { Authorization: `Bearer ${token}` },
       data: {
         Username: newUsername ? newUsername : this.state.Username,
@@ -137,7 +137,7 @@ export class ProfileView extends React.Component {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
 
-    axios.delete('https://myflixdb17.herokuapp.com/users/${username}', {
+    axios.delete(`https://myflixdb17.herokuapp.com/users/${username}`, {
       headers: {Authorization: `Bearer ${token}` },
     })
       .then(() => {
@@ -255,3 +255,6 @@ ProfileView.propTypes = {
     Birthday: PropTypes.string,
   }),
 }; 
+
+
+export default ProfileView;
