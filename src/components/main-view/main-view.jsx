@@ -2,15 +2,16 @@ import React from 'react';
 import axios from 'axios';// Using it to fetch the movies, then set the state of movies using this.setState
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import { MovieCard } from '../movie-card/movie-card';
-import { MovieView } from '../movie-view/movie-view';
-import { LoginView } from '../login-view/login-view';
-import { RegistrationView } from '../registration-view/registration-view';
+import  MovieCard  from '../movie-card/movie-card';
+import  MovieView  from '../movie-view/movie-view';
+import  LoginView  from '../login-view/login-view';
+import  RegistrationView  from '../registration-view/registration-view';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { ProfileView } from '../profile-view/profile-view';
-import { GenreView } from '../genre-view/genre-view';
+import ProfileView  from '../profile-view/profile-view';
+import GenreView  from '../genre-view/genre-view';
+import Redirect  from 'react-router';
 
 
 import NavBar from '../navbar-view/navbar-view'
@@ -20,7 +21,7 @@ import NavBar from '../navbar-view/navbar-view'
 import './main-view.scss';
 
 
-export class MainView extends React.Component {
+class MainView extends React.Component {
 
     constructor() { //The method that React uses to actually create the component
         super(); // This will call the parent React.Component’s constructor, which will give your class the actual React component’s features. Also, it will initialize the component’s this variable
