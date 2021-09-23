@@ -28440,30 +28440,40 @@ class MovieView extends _reactDefault.default.Component {
                         })
                     ]
                 }),
-                /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                    variant: "dark",
-                    className: "fav-button",
-                    value: movie._id,
-                    onClick: (e)=>this.addFavorite(e, movie)
-                    ,
+                /*#__PURE__*/ _jsxRuntime.jsxs("span", {
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 56
                     },
                     __self: this,
-                    children: "Add to favourites"
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                    variant: "dark",
-                    onClick: ()=>{
-                        onBackClick(null);
-                    },
-                    __source: {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 59
-                    },
-                    __self: this,
-                    children: "Movies"
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                            variant: "dark",
+                            className: "fav-button",
+                            value: movie._id,
+                            onClick: (e)=>this.addFavorite(e, movie)
+                            ,
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 57
+                            },
+                            __self: this,
+                            children: "Add to favourites"
+                        }),
+                        ' ',
+                        /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                            variant: "dark",
+                            onClick: ()=>{
+                                onBackClick(null);
+                            },
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 61
+                            },
+                            __self: this,
+                            children: "Movies"
+                        })
+                    ]
                 })
             ]
         }));
