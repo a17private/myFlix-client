@@ -53,11 +53,14 @@ export class MovieView extends React.Component {
         </Link>
         <span className="value">{movie.Director.Name}</span>
       </div>
+      <span>
       <Button variant='dark' className="fav-button" value={movie._id} onClick={(e) => this.addFavorite(e, movie)}>
          Add to favourites 
       </Button>
+      {' '}
       <Button variant="dark" onClick={() => 
         { onBackClick(null); }}>Movies</Button>
+      </span>
       </div>
   );
 }
