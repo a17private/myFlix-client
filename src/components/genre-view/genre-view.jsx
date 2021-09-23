@@ -4,21 +4,22 @@ import Button from 'react-bootstrap';
 
 
 
-export class GenreView extends React.Component {
+class GenreView extends React.Component {
 
   render() {
-    const { movie, onBackClick } = this.props;
+    const { genre, onBackClick } = this.props;
+    console.log(genre, "genre");
 
     return (
       <div className="genre-view">
 
         <div className="genre-name">
           <h1>
-            <span className="value">{movie.genre.Name}</span>
+            <span className="value">{genre.Name}</span>
           </h1>
         </div>
         <div className="genre-description">
-          <span className="value">{movie.genre.Description}</span>
+          <span className="value">{genre.Description}</span>
         </div>
 
         <Button variant="primary" onClick={() => { onBackClick(null); }}>Back</Button>
@@ -30,11 +31,9 @@ export class GenreView extends React.Component {
 
 
 GenreView.propTypes = {
-  movie: propTypes.shape({
     Genre: propTypes.shape({
       Name: propTypes.string.isRequired,
       Description: propTypes.string.isRequired
-    }),
    }).isRequired
 };
 
