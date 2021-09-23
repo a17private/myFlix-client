@@ -1,11 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import  Button  from 'react-bootstrap';
-import  Card  from 'react-bootstrap';
-import  CardDeck  from 'react-bootstrap';
-import  Form  from 'react-bootstrap';
-import  Row  from 'react-bootstrap';
+import { Button, Card, CardDeck, Form, Row } from 'react-bootstrap';
 
 import './profile-view.scss';
 
@@ -156,12 +152,11 @@ class ProfileView extends React.Component {
     const { movies } = this.props;
 
     return (
-        <Row className="profile-view">
+       <Row className="profile-view">
         <Card className="profile-card">
-        <Card.Body>
           <h2>Favorites</h2>
           <Card.Body>
-            {FavoriteMovies.length === 0 && <h6 className="text-center">Add a favourite! </h6>}
+           {FavoriteMovies.length === 0 && <h6 className="text-center">Add a favourite! </h6>}
 
             <div className="favorites-movies ">
               {FavoriteMovies.length > 0 &&
@@ -184,11 +179,13 @@ class ProfileView extends React.Component {
                 })}
             </div>
           </Card.Body>
-         </Card.Body>
-        
+         
+    
         
           <h2 className="section">Edit profile</h2>
           <Card.Body>
+
+    
             <Form noValidate validated={validated} className="update-form" onSubmit={(e) => this.handleUpdate(e, this.Username, this.Password, this.Email, this.Birthday)}>
 
               <Form.Group controlId="formBasicUsername">
@@ -218,29 +215,23 @@ class ProfileView extends React.Component {
                 Update
               </Button>
             
-                       
-            
-              
-
-             
-                <Card.Body>
-                <h6>Delete account</h6>
-                 <Button variant='danger' size="sm" onClick={(e) => 
+              <h6>Delete account</h6>     
+                <div>
+                <Button variant='danger' size="sm" onClick={(e) => 
                   this.handleDeleteUser(e)}>
                   Delete account
                  </Button>
-              </Card.Body>
+              </div>
            
           
             </Form>
-
           </Card.Body>
         </Card>
       </Row >
     );
-  }
+  } 
 
-}
+} 
 
 ProfileView.propTypes = {
   user: PropTypes.shape({
@@ -257,4 +248,4 @@ ProfileView.propTypes = {
 }; 
 
 
-export default ProfileView;
+export default ProfileView; 
