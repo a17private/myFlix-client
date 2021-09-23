@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/Button";
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 import "./login-view.scss";
 
@@ -20,6 +19,8 @@ export function LoginView(props) {
   
   const handleSubmit = (e) => {
     e.preventDefault();
+    let setisValid = formValidation();
+    if (setisValid) {
     /* Send a request to the server for authentication */
     axios.post('https://myflixdb17.herokuapp.com/login', {
       Username: username,
@@ -33,6 +34,26 @@ export function LoginView(props) {
       console.log('no such user')
     });
   };
+}
+
+  const formValidation = () => {
+    let usernameError = {};
+    let passwordError = {};
+    let isValid = true;
+
+    if (username.trim().length < 4) {
+      usernameError.usernameShort = "Username must be at least 4 characters.";
+      isValid = false;
+    }
+    if (password.trim().length < 5) {
+      passwordError.passwordMissing = "Password must be at least 5 characters.";
+      isValid = false;
+    }
+  
+    setUsernameError(usernameError);
+    setPasswordError(passwordError);
+    return isValid;
+};
 
   return (
 
@@ -40,20 +61,34 @@ export function LoginView(props) {
       <Form.Group controlId="formUsername">
         <Form.Label>Username:</Form.Label>
         <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
+        {Object.keys(usernameError).map((key) => {
+          return (
+            <div key={key}>
+              {usernameError[key]}
+            </div>
+          );
+        })}
       </Form.Group>
       <Form.Group controlId="formPassword">
         <Form.Label>Password:</Form.Label>
         <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
+        {Object.keys(passwordError).map((key) => {
+            return (
+              <div key={key}>
+                {passwordError[key]}
+              </div>
+            );
+          })}
       </Form.Group>
      
-      <span>
+    <span>
       <Button variant="dark" size="sm" type="submit" onClick={handleSubmit}>
         Login
       </Button>
-      <Button variant="dark" size="sm" type="submit" onClick={handleSubmit}>
-        Join
-      </Button>
-      </span>
+      {' '}
+      <Link to="/register"><Button variant="dark" size="sm" type="button">Join</Button>
+      </Link>
+    </span>
       
     </Form>
   );
