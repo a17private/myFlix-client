@@ -9,8 +9,6 @@ import { RegistrationView } from '../registration-view/registration-view';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { DirectorView } from '../director-view/director-view';
-import { GenreView } from '../genre-view/genre-view';
 import { ProfileView } from '../profile-view/profile-view';
 
 
@@ -161,7 +159,7 @@ export class MainView extends React.Component {
             </Col>
             if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
-              <DirectorView director={movies.find(m => 
+              <MovieView director={movies.find(m => 
               m.Director.Name === match.params.name).Director} onBackClick={() => 
                 history.goBack()} />
             </Col>
@@ -174,7 +172,7 @@ export class MainView extends React.Component {
             </Col>
             if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
-              <GenreView genre={movies.find(m => 
+              <MovieView genre={movies.find(m => 
               m.Genre.Name === match.params.name).Genre} onBackClick={() => 
                 history.goBack()} />
             </Col>
