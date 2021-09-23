@@ -10,8 +10,8 @@ import { Row } from 'react-bootstrap';
 import './profile-view.scss';
 
 export class ProfileView extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       Username: null,
