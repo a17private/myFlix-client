@@ -14,11 +14,10 @@ export class ProfileView extends React.Component {
     super();
 
     this.state = {
-      Name: null,
       Username: null,
       Password: null,
       Email: null,
-      Birthdate: null,
+      Birthday: null,
       FavoriteMovies: [],
       validated: null,
     };
@@ -36,15 +35,14 @@ export class ProfileView extends React.Component {
   getUser(token) {
     const username = localStorage.getItem('user');
     axios.get('https://myflixdb17.herokuapp.com/users/${username}', {
-      headers: { Authorization: 'Bearer ${token}' },
+      headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => {
         this.setState({
-          Name: response.data.Name,
           Username: response.data.Username,
           Password: response.data.Password,
           Email: response.data.Email,
-          Birthdate: response.data.Birthdate,
+          Birthday: response.data.Birthday,
           FavoriteMovies: response.data.FavoriteMovies,
         });
       })
@@ -61,7 +59,7 @@ export class ProfileView extends React.Component {
 
     axios
       .delete('https://myflixdb17.herokuapp.com/users/${username}/movies/${movie._id}', {
-        headers: { Authorization: 'Bearer ${token}' },
+        headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
         alert('Movie was removed');
@@ -73,7 +71,7 @@ export class ProfileView extends React.Component {
     // .then(() => window.location.reload());
   }
 
-  handleUpdate(e, newName, newUsername, newPassword, newEmail, newBirthdate) {
+  handleUpdate(e, newUsername, newPassword, newEmail, newBirthday) {
     this.setState({
       validated: null,
     });
@@ -95,21 +93,19 @@ export class ProfileView extends React.Component {
     axios.put('https://myflixdb17.herokuapp.com/users/${username}', {
       headers: { Authorization: `Bearer ${token}` },
       data: {
-        Name: newName ? newName : this.state.Name,
         Username: newUsername ? newUsername : this.state.Username,
         Password: newPassword ? newPassword : this.state.Password,
         Email: newEmail ? newEmail : this.state.Email,
-        Birthdate: newBirthdate ? newBirthdate : this.state.Birthdate,
+        Birthday: newBirthday ? newBirthday : this.state.Birthday,
       },
     })
       .then((response) => {
         alert('Saved Changes');
         this.setState({
-          Name: response.data.Name,
           Username: response.data.Username,
           Password: response.data.Password,
           Email: response.data.Email,
-          Birthdate: response.data.Birthdate,
+          Birthday: response.data.Birthday,
         });
         localStorage.setItem('user', this.state.Username);
         window.open('/users/${username}', '_self');
@@ -118,10 +114,7 @@ export class ProfileView extends React.Component {
         console.log(error);
       });
   }
-  setName(input) {
-    this.Name = input;
-  }
-
+ 
   setUsername(input) {
     this.Username = input;
   }
@@ -134,8 +127,8 @@ export class ProfileView extends React.Component {
     this.Email = input;
   }
 
-  setBirthdate(input) {
-    this.Birthdate = input;
+  setBirthday(input) {
+    this.Birthday = input;
   }
 
   handleDeleteUser(e) {
@@ -196,12 +189,7 @@ export class ProfileView extends React.Component {
         
           <h2 className="section">Edit profile</h2>
           <Card.Body>
-            <Form noValidate validated={validated} className="update-form" onSubmit={(e) => this.handleUpdate(e, this.Name, this.Username, this.Password, this.Email, this.Birthdate)}>
-
-              <Form.Group controlId="formName">
-                <Form.Label className="form-label">Name</Form.Label>
-                <Form.Control type="text" placeholder="Change Name" onChange={(e) => this.setName(e.target.value)} />
-              </Form.Group>
+            <Form noValidate validated={validated} className="update-form" onSubmit={(e) => this.handleUpdate(e, this.Username, this.Password, this.Email, this.Birthday)}>
 
               <Form.Group controlId="formBasicUsername">
                 <Form.Label className="form-label">Username</Form.Label>
@@ -222,7 +210,7 @@ export class ProfileView extends React.Component {
 
               <Form.Group controlId="formBasicBirthday">
                 <Form.Label className="form-label">Birthday</Form.Label>
-                <Form.Control type="date" placeholder="Change Birthdate" onChange={(e) => this.setBirthdate(e.target.value)} />
+                <Form.Control type="date" placeholder="Change Birthday" onChange={(e) => this.setBirthday(e.target.value)} />
               </Form.Group>
               
              
@@ -264,6 +252,6 @@ ProfileView.propTypes = {
     ),
     Username: PropTypes.string.isRequired,
     Email: PropTypes.string.isRequired,
-    Birthdate: PropTypes.string,
+    Birthday: PropTypes.string,
   }),
 }; 
