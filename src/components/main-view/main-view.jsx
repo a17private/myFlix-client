@@ -16,6 +16,14 @@ import Redirect  from 'react-router';
 
 import NavBar from '../navbar-view/navbar-view'
 
+// #0
+import { setMovies } from '../../actions/actions';
+
+/* we haven't written this one yet*/
+import MoviesList from '../movies-list/movies-list';
+
+
+
 
 // SCSS Styling import
 import './main-view.scss';
@@ -26,7 +34,6 @@ class MainView extends React.Component {
     constructor() { //The method that React uses to actually create the component
         super(); // This will call the parent React.Component’s constructor, which will give your class the actual React component’s features. Also, it will initialize the component’s this variable
         this.state = {
-            movies: [],
             user: null,
           };    
     }
@@ -103,7 +110,8 @@ class MainView extends React.Component {
   }
 
     render() {
-        const { movies, user} = this.state;
+        const { movies } = this.props;
+        const { user } = this.state;
          // If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView
          console.log("render", user);
 
@@ -193,6 +201,10 @@ class MainView extends React.Component {
     }
   };
 
+  let mapStateToProps = state => {
+    return { movies: state.movies }
+  }
 
-  export default MainView;
+
+  export default connect(mapStateToProps, { setMovies } )(MainView);
 
