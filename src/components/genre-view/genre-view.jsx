@@ -22,7 +22,7 @@ class GenreView extends React.Component {
           <span className="value">{genre.Description}</span>
         </div>
 
-        <Button variant="primary" onClick={() => { onBackClick(null); }}>Back</Button>
+        <Button variant="dark" size="sm" onClick={() => { onBackClick(null); }}>Back</Button>
 
       </div>
     );
@@ -31,7 +31,7 @@ class GenreView extends React.Component {
 
 
 GenreView.propTypes = {
-    Genre: propTypes.shape({
+    genre: propTypes.shape({
       Name: propTypes.string.isRequired,
       Description: propTypes.string.isRequired
    }).isRequired
