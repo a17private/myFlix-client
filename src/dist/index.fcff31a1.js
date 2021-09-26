@@ -25560,6 +25560,7 @@ var _directorView = require("../director-view/director-view");
 var _directorViewDefault = parcelHelpers.interopDefault(_directorView);
 var _reactRouter = require("react-router");
 var _reactRouterDefault = parcelHelpers.interopDefault(_reactRouter);
+var _reactRedux = require("react-redux");
 var _navbarView = require("../navbar-view/navbar-view");
 var _navbarViewDefault = parcelHelpers.interopDefault(_navbarView);
 // #0
@@ -25646,7 +25647,7 @@ class MainView extends _reactDefault.default.Component {
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 121
+                lineNumber: 122
             },
             __self: this,
             children: [
@@ -25654,7 +25655,7 @@ class MainView extends _reactDefault.default.Component {
                     user: user,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 122
+                        lineNumber: 123
                     },
                     __self: this
                 }),
@@ -25662,7 +25663,7 @@ class MainView extends _reactDefault.default.Component {
                     className: "main-view justify-content-md-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 124
+                        lineNumber: 125
                     },
                     __self: this,
                     children: [
@@ -25688,7 +25689,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 126
+                                lineNumber: 127
                             },
                             __self: this
                         }),
@@ -25705,7 +25706,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 140
+                                lineNumber: 141
                             },
                             __self: this
                         }),
@@ -25719,7 +25720,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 147
+                                lineNumber: 148
                             },
                             __self: this
                         }),
@@ -25745,7 +25746,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 153
+                                lineNumber: 154
                             },
                             __self: this
                         }),
@@ -25771,7 +25772,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 165
+                                lineNumber: 166
                             },
                             __self: this
                         }),
@@ -25797,7 +25798,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 179
+                                lineNumber: 180
                             },
                             __self: this
                         }),
@@ -25816,7 +25817,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 192
+                                lineNumber: 193
                             },
                             __self: this
                         })
@@ -25832,7 +25833,7 @@ let mapStateToProps = (state)=>{
         movies: state.movies
     };
 };
-exports.default = connect(mapStateToProps, {
+exports.default = _reactRedux.connect(mapStateToProps, {
     setMovies: _actions.setMovies
 })(MainView); // Modules
 
@@ -25841,7 +25842,7 @@ exports.default = connect(mapStateToProps, {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","react-router-dom":"cpyQW","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","../login-view/login-view":"054li","../registration-view/registration-view":"aP2YV","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","../profile-view/profile-view":"2E7Aw","../genre-view/genre-view":"8WCoL","../director-view/director-view":"ck15y","react-router":"l4MNa","../navbar-view/navbar-view":"j0Dt2","../../actions/actions":"1Ttfj","../movies-list/movies-list":"1kGQ5","./main-view.scss":"jyMAr","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5k0mc"}],"iYoWk":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","react-router-dom":"cpyQW","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","../login-view/login-view":"054li","../registration-view/registration-view":"aP2YV","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","../profile-view/profile-view":"2E7Aw","../genre-view/genre-view":"8WCoL","../director-view/director-view":"ck15y","react-router":"l4MNa","../navbar-view/navbar-view":"j0Dt2","../../actions/actions":"1Ttfj","../movies-list/movies-list":"1kGQ5","./main-view.scss":"jyMAr","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5k0mc","react-redux":"2L0if"}],"iYoWk":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 
 },{"./lib/axios":"3QmO2"}],"3QmO2":[function(require,module,exports) {

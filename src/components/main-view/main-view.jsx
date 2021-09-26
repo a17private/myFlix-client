@@ -13,6 +13,7 @@ import ProfileView  from '../profile-view/profile-view';
 import GenreView  from '../genre-view/genre-view';
 import DirectorView  from '../director-view/director-view';
 import Redirect  from 'react-router';
+import { connect } from 'react-redux';
 
 
 import NavBar from '../navbar-view/navbar-view'
