@@ -11,6 +11,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ProfileView  from '../profile-view/profile-view';
 import GenreView  from '../genre-view/genre-view';
+import DirectorView  from '../director-view/director-view';
 import Redirect  from 'react-router';
 
 
@@ -169,7 +170,7 @@ class MainView extends React.Component {
             </Col>
             if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
-              <MovieView director={movies.find(m => 
+              <DirectorView director={movies.find(m => 
               m.Director.Name === match.params.name).Director} onBackClick={() => 
                 history.goBack()} />
             </Col>
