@@ -23,14 +23,14 @@ import Button from 'react-bootstrap/Button';
           <span className="value">{director.Birth}</span>
         </div>
 
-        <Button variant="primary" onClick={() => { onBackClick(null); }}>Back</Button>
+        <Button variant="dark" size="sm" onClick={() => { onBackClick(null); }}>Back</Button>
 
       </div>
     );
   }
 }
 
-MovieView.propTypes = {
+DirectorView.propTypes = {
   director: propTypes.shape({
     Name: propTypes.string.isRequired,
     Bio: propTypes.string.isRequired,
