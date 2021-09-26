@@ -10,6 +10,12 @@ import { Link } from "react-router-dom";
 import "./movie-card.scss";
 
 
+const mapStateToProps = state => {
+  const {user} = state;
+  return {user};
+};
+
+
  class MovieCard extends React.Component {
 
   render() {
