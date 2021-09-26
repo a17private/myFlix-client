@@ -1,9 +1,19 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Button, Card, CardDeck, Form, Row } from 'react-bootstrap';
 
 import './profile-view.scss';
+
+
+const mapStateToProps = state => {
+  const { movies, user } = state;
+  return { movies, user };
+};
+
+
+
 
 class ProfileView extends React.Component {
   constructor(props) {
@@ -249,5 +259,4 @@ ProfileView.propTypes = {
   }),
 }; 
 
-
-export default ProfileView; 
+export default connect(mapStateToProps)(ProfileView);

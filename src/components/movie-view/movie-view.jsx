@@ -5,9 +5,18 @@ import Badge from 'react-bootstrap/Badge';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import Badge from 'react-bootstrap/Badge';
+import { connect } from 'react-redux';
 
 
-export class MovieView extends React.Component {
+
+const mapStateToProps = state => {
+  const { movies , user} = state;
+  return { movies , user};
+};
+
+
+
+class MovieView extends React.Component {
 
   addFavorite() {
     const token = localStorage.getItem('token');
@@ -65,6 +74,10 @@ export class MovieView extends React.Component {
   );
 }
 }
+
+
+export default connect(mapStateToProps)(MovieView);
+
 
 
 MovieView.propTypes = {
