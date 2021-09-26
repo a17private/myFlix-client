@@ -245,6 +245,12 @@ class ProfileView extends React.Component {
 
 } 
 
+
+
+export default connect(mapStateToProps)(ProfileView);
+
+
+
 ProfileView.propTypes = {
   user: PropTypes.shape({
     FavoriteMovies: PropTypes.arrayOf(
@@ -259,4 +265,3 @@ ProfileView.propTypes = {
   }),
 }; 
 
-export default connect(mapStateToProps)(ProfileView);
