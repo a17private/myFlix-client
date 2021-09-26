@@ -48,13 +48,15 @@ class ProfileView extends React.Component {
   }
 
 
-  removeFavouriteMovie() {
+  removeFavouriteMovie(e) {
+    e.preventDefault();
+
     const token = localStorage.getItem('token');
     const Username = localStorage.getItem('user');
 
 
     axios
-      .delete(`https://myflixdb17.herokuapp.com/users/${Username}/movies/${movie._id}`, {
+      .delete(`https://myflixdb17.herokuapp.com/users/Username/movies/${movie._id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
@@ -64,7 +66,7 @@ class ProfileView extends React.Component {
       .catch(function (error) {
         console.log(error);
       })
-    // .then(() => window.location.reload());
+     .then(() => window.location.reload());
   }
 
   handleUpdate(e, newUsername, newPassword, newEmail, newBirthday) {
@@ -163,8 +165,8 @@ class ProfileView extends React.Component {
                 movies.map((movie) => {
                   if (movie._id === FavoriteMovies.find((favMovie) => favMovie === movie._id)) {
                     return (
-                      <CardDeck className="movie-card-deck">
-                        <Card className="favorites-item card-content" style={{ width: '16rem' }} key={movie._id}>
+                      <CardDeck className="movie-card-deck" key={movie._id}>
+                        <Card className="favorites-item card-content" style={{ width: '16rem' }} >
                           <Card.Img style={{ width: '15rem' }} className="movieCard" variant="top" src={movie.ImagePath} />
                           <Card.Body>
                             <Card.Title className="movie-card-title">{movie.Title}</Card.Title>
