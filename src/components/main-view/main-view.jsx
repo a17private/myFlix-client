@@ -38,6 +38,7 @@ class MainView extends React.Component {
         super(); // This will call the parent React.Component’s constructor, which will give your class the actual React component’s features. Also, it will initialize the component’s this variable
         this.state = {
             user: null,
+            movies: []
           };    
     }
 
