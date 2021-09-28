@@ -2,8 +2,8 @@ import React from 'react';
 import axios from 'axios';// Using it to fetch the movies, then set the state of movies using this.setState
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import  { MovieCard }  from '../movie-card/movie-card';
-import  { MovieView } from '../movie-view/movie-view';
+import   MovieCard   from '../movie-card/movie-card';
+import   MovieView  from '../movie-view/movie-view';
 import  { LoginView }  from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 
@@ -114,7 +114,7 @@ class MainView extends React.Component {
   }
 
     render() {
-        const { movies } = this.props;
+        const { movies } = this.state;
         const { user } = this.state;
          // If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView
          console.log("render", user);
