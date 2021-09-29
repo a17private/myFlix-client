@@ -47,16 +47,13 @@ class ProfileView extends React.Component {
       });
   }
 
-
-  removeFavouriteMovie(e) {
-    e.preventDefault();
-
+  removeFavouriteMovie() {
     const token = localStorage.getItem('token');
-    const Username = localStorage.getItem('user');
+    const username = localStorage.getItem('user');
 
 
     axios
-      .delete(`https://myflixdb17.herokuapp.com/users/Username/movies/${movie._id}`, {
+      .delete(`https://myflixdb17.herokuapp.com/users/${username}/movies/${movie._id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
@@ -66,8 +63,9 @@ class ProfileView extends React.Component {
       .catch(function (error) {
         console.log(error);
       })
-     .then(() => window.location.reload());
+    // .then(() => window.location.reload());
   }
+
 
   handleUpdate(e, newUsername, newPassword, newEmail, newBirthday) {
     this.setState({
@@ -170,9 +168,10 @@ class ProfileView extends React.Component {
                           <Card.Img style={{ width: '15rem' }} className="movieCard" variant="top" src={movie.ImagePath} />
                           <Card.Body>
                             <Card.Title className="movie-card-title">{movie.Title}</Card.Title>
-                            <Button size='sm' className='profile-button remove-favorite' variant='danger' value={movie._id} onClick={(e) => this.removeFavouriteMovie(e, movie)}>
-                              Remove
-                            </Button>
+                            <Button size='sm' className='profile-button remove-favorite' variant='danger' value={movie._id} onClick={() => 
+                            this.removeFavouriteMovie(movie)}>
+                            Remove
+                          </Button>
                           </Card.Body>
                         </Card>
                       </CardDeck>
