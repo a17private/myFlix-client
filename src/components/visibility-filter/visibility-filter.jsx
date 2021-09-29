@@ -1,3 +1,4 @@
+// src/components/visibility-filter-input/visibility-filter-input.jsx
 import React from 'react';
 import { connect } from 'react-redux';
 
