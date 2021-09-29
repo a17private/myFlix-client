@@ -30074,7 +30074,7 @@ class ProfileView extends _reactDefault.default.Component {
     removeFavouriteMovie() {
         const token = localStorage.getItem('token');
         const username = localStorage.getItem('user');
-        _axiosDefault.default.delete(`https://myflixdb17.herokuapp.com/users/${username}/movies/${movie._id}`, {
+        _axiosDefault.default.delete(`https://myflixdb17.herokuapp.com/users/${username}/movies/${this.props.movie._id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
