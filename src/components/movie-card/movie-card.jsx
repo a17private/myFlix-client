@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { connect } from 'react-redux';
 
 
 import { Link } from "react-router-dom";
@@ -10,13 +9,7 @@ import { Link } from "react-router-dom";
 import "./movie-card.scss";
 
 
-const mapStateToProps = state => {
-  const {user} = state;
-  return {user};
-};
-
-
- class MovieCard extends React.Component {
+export class MovieCard extends React.Component {
 
   render() {
     const { movie } = this.props;
@@ -34,11 +27,7 @@ const mapStateToProps = state => {
       </Card>
     );
   }
-}   
-
-
-export default connect(mapStateToProps)(MovieCard);
-
+}         
 
 MovieCard.propTypes = {
   movie: PropTypes.shape({
