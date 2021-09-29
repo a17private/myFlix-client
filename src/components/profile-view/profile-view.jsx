@@ -1,23 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Button, Card, CardDeck, Form, Row } from 'react-bootstrap';
 
 import './profile-view.scss';
 
-
-const mapStateToProps = state => {
-  const { movies, user } = state;
-  return { movies, user };
-};
-
-
-
-
 class ProfileView extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       Username: null,
@@ -57,17 +47,15 @@ class ProfileView extends React.Component {
       });
   }
 
-
-  removeFavouriteMovie(e) {
+  removeFavoriteMovie(e, movie) {
     e.preventDefault();
-
     const token = localStorage.getItem('token');
-    const Username = localStorage.getItem('user');
+    const username = localStorage.getItem('user');
 
 
     axios
-      .delete(`https://myflixdb17.herokuapp.com/users/Username/movies/${movie._id}`, {
-        headers: { Authorization: `Bearer ${token}` },
+    .delete(`https://myflixdb17.herokuapp.com/users/${username}/movies/${movie._id}`, {
+      headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
         alert('Movie was removed');
@@ -76,8 +64,9 @@ class ProfileView extends React.Component {
       .catch(function (error) {
         console.log(error);
       })
-     .then(() => window.location.reload());
+     //.then(() => window.location.reload());
   }
+
 
   handleUpdate(e, newUsername, newPassword, newEmail, newBirthday) {
     this.setState({
@@ -180,7 +169,7 @@ class ProfileView extends React.Component {
                           <Card.Img style={{ width: '15rem' }} className="movieCard" variant="top" src={movie.ImagePath} />
                           <Card.Body>
                             <Card.Title className="movie-card-title">{movie.Title}</Card.Title>
-                            <Button size='sm' className='profile-button remove-favorite' variant='danger' value={movie._id} onClick={(e) => this.removeFavouriteMovie(e, movie)}>
+                            <Button size='sm' className='profile-button remove-favorite' variant='danger'  value={movie._id} onClick={(e) => this.removeFavoriteMovie(e, movie)}>
                               Remove
                             </Button>
                           </Card.Body>
@@ -245,12 +234,6 @@ class ProfileView extends React.Component {
 
 } 
 
-
-
-export default connect(mapStateToProps)(ProfileView);
-
-
-
 ProfileView.propTypes = {
   user: PropTypes.shape({
     FavoriteMovies: PropTypes.arrayOf(
@@ -265,3 +248,5 @@ ProfileView.propTypes = {
   }),
 }; 
 
+
+export default ProfileView; 
