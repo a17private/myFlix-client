@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, Form, FormControl } from 'react-bootstrap';
 
 export class NavBar extends React.Component {
   constructor() {
@@ -42,6 +42,9 @@ export class NavBar extends React.Component {
             </Nav.Link>
 
           </Nav>
+          <Form inline>
+            <FormControl type="text" placeholder="Search" />
+          </Form>
         </Navbar.Collapse>
       </Navbar>
     );

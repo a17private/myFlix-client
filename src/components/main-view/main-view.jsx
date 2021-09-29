@@ -133,9 +133,10 @@ class MainView extends React.Component {
                   <LoginView onLoggedIn={user => 
                     this.onLoggedIn(user)} />
                 </Col>
-                if (movies.length === 0) // #6
-                return <MoviesList movies={movies}/>;
-                }} />
+                 if (movies.length === 0) return <div className="main-view" />;
+                 // #6
+                 return <MoviesList movies={movies}/>;
+               }} />
               <Route path="/register" render={() => 
               {
                 if (user) return <Redirect to="/" />
