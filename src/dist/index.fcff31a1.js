@@ -30084,8 +30084,8 @@ class ProfileView extends _reactDefault.default.Component {
             this.componentDidMount();
         }).catch(function(error) {
             console.log(error);
-        }).then(()=>window.location.reload()
-        );
+        });
+    //.then(() => window.location.reload());
     }
     handleUpdate(e, newUsername, newPassword, newEmail, newBirthday) {
         this.setState({
