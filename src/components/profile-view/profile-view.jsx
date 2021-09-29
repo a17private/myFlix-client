@@ -6,8 +6,8 @@ import { Button, Card, CardDeck, Form, Row } from 'react-bootstrap';
 import './profile-view.scss';
 
 class ProfileView extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       Username: null,
@@ -47,14 +47,15 @@ class ProfileView extends React.Component {
       });
   }
 
-  removeFavouriteMovie() {
+  removeFavoriteMovie(e, movie) {
+    e.preventDefault();
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
 
 
     axios
-      .delete(`https://myflixdb17.herokuapp.com/users/${username}/movies/${this.props.movie._id}`, {
-        headers: { Authorization: `Bearer ${token}` },
+    .delete(`https://myflixdb17.herokuapp.com/users/${username}/movies/${movie._id}`, {
+      headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {
         alert('Movie was removed');
@@ -63,7 +64,7 @@ class ProfileView extends React.Component {
       .catch(function (error) {
         console.log(error);
       })
-    // .then(() => window.location.reload());
+     .then(() => window.location.reload());
   }
 
 
@@ -168,10 +169,9 @@ class ProfileView extends React.Component {
                           <Card.Img style={{ width: '15rem' }} className="movieCard" variant="top" src={movie.ImagePath} />
                           <Card.Body>
                             <Card.Title className="movie-card-title">{movie.Title}</Card.Title>
-                            <Button size='sm' className='profile-button remove-favorite' variant='danger' value={movie._id} onClick={() => 
-                            this.removeFavouriteMovie(movie)}>
-                            Remove
-                          </Button>
+                            <Button size='sm' className='profile-button remove-favorite' variant='danger'  value={movie._id} onClick={(e) => this.removeFavoriteMovie(e, movie)}>
+                              Remove
+                            </Button>
                           </Card.Body>
                         </Card>
                       </CardDeck>
