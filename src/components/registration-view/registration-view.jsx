@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
