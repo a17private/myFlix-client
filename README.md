@@ -2,22 +2,24 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/93dcb63f-dde5-4784-920d-e5794979dc76/deploy-status)](https://app.netlify.com/sites/myflix-client-17/deploys)
 
-# flix_App
-Built With
+# myflix_App
+
+
+# Build
 React
 
 # Getting Started
-Using React, build the client-side for an application called myFlix based on its existing server-side code (REST API and database)...
+React was used to build a front-end client side to pair with the backend server side API.
 
 # User Stories
-As a user, I want to be able to access information about movies, directors, and genres so I can learn more about movies I have seen or that interest me.
-As a user, I want to be able to create a profile to store data about my favorite movies.
+As a user, I want to be able to access information about movies their directors, and genres so I can learn more about movies that I want to learn more about.
+As a user, I want to create a personal profile that will allow me to save my favourite movies.
 Main view
 
 
 # Essential Views and Features:
 Returns a list of ALL movies to the user (each listed item with an image, title, and description)
-Sorting and filtering
+Filteration of movies
 Ability to select a movie for more details
 Single movie view
 Returns data (description, genre, director, image) about a single movie to the user
@@ -60,10 +62,12 @@ The application must contain a mix of class components and function components
 The application may be hosted online
 
 # Dependencies:
-react-bootstrap
-axios
-react-dom
-react-redux
-react-router-dom
-redux
-redux-devtools-extension
+  axios
+  prop-types
+  react
+  react-bootstrap
+  react-dom
+  react-redux
+  react-router-dom
+  redux
+  redux-devtools-extension
