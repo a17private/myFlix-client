@@ -6,18 +6,6 @@ import { Button, Card, CardDeck, Form, Row } from 'react-bootstrap';
 import './profile-view.scss';
 
 class ProfileView extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      Username: null,
-      Password: null,
-      Email: null,
-      Birthday: null,
-      FavoriteMovies: [],
-      validated: null,
-    };
-  }
 
   componentDidMount() {
     const accessToken = localStorage.getItem('token');
@@ -34,7 +22,7 @@ class ProfileView extends React.Component {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => {
-        this.setState({
+        this.props.setUser({
           Username: response.data.Username,
           Password: response.data.Password,
           Email: response.data.Email,
@@ -69,7 +57,7 @@ class ProfileView extends React.Component {
 
 
   handleUpdate(e, newUsername, newPassword, newEmail, newBirthday) {
-    this.setState({
+    this.props.setUser({
       validated: null,
     });
 
@@ -77,7 +65,7 @@ class ProfileView extends React.Component {
     if (form.checkValidity() === false) {
       e.preventDefault();
       e.stopPropagation();
-      this.setState({
+      this.props.setUser({
         validated: true,
       });
       return;
@@ -98,13 +86,13 @@ class ProfileView extends React.Component {
     })
       .then((response) => {
         alert('Saved Changes');
-        this.setState({
+        this.props.setUser({
           Username: response.data.Username,
           Password: response.data.Password,
           Email: response.data.Email,
           Birthday: response.data.Birthday,
         });
-        localStorage.setItem('user', this.state.Username);
+        localStorage.setItem('user', this.props.Username);
         window.open('/users/${username}', '_self');
       })
       .catch(function (error) {
@@ -149,8 +137,8 @@ class ProfileView extends React.Component {
   }
 
   render() {
-    const { FavoriteMovies, validated } = this.state;
-    const { movies } = this.props;
+    const { FavoriteMovies, validated } = this.props;
+    const { movies, user } = this.props;
 
     return (
        <Row className="profile-view">
@@ -249,4 +237,10 @@ ProfileView.propTypes = {
 }; 
 
 
-export default ProfileView; 
+// #7
+let mapStateToProps = state => {
+  return { movies: state.movies, user: state.user }
+}
+
+// #8
+export default connect(mapStateToProps, { setMovies, setUser } )(MainView);
