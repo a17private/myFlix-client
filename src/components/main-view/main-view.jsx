@@ -46,17 +46,11 @@ class MainView extends React.Component {
     onLoggedOut() {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
-      // this.setState({
-      //   user: null
-      // });
     }
 
     // Log In
     onLoggedIn(authData) {
       console.log(authData);
-      // this.setState({
-      //   user: authData.user.Username
-      // });
       this.props.setUser(authData.user);
 
 
@@ -100,12 +94,6 @@ class MainView extends React.Component {
       });
   }
 
-//When a new user is registered  
-  // onRegister(register) {
-  //   this.setState({
-  //     register: register,
-  //   });
-  // }
 
 
     render() {
