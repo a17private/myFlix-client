@@ -32,37 +32,32 @@ import './main-view.scss';
 
 class MainView extends React.Component {
 
-    constructor() { //The method that React uses to actually create the component
-        super(); // This will call the parent React.Component’s constructor, which will give your class the actual React component’s features. Also, it will initialize the component’s this variable
-        this.state = {
-            user: null,
-          };    
-    }
+  
 
     componentDidMount(){
       let accessToken = localStorage.getItem('token');
       if (accessToken !== null) {
-        this.setState({
-          user: localStorage.getItem('user')
-        });
+        this.getUser(accessToken);
         this.getMovies(accessToken);
       }
     }
 
+
     onLoggedOut() {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
-      this.setState({
-        user: null
-      });
+      // this.setState({
+      //   user: null
+      // });
     }
 
     // Log In
-  onLoggedIn(authData) {
-    console.log(authData);
-    this.setState({
-      user: authData.user.Username
-    });
+    onLoggedIn(authData) {
+      console.log(authData);
+      // this.setState({
+      //   user: authData.user.Username
+      // });
+      this.props.setUser(authData.user);
 
 
     localStorage.setItem('token', authData.token);
@@ -89,16 +84,15 @@ class MainView extends React.Component {
     
      
   
-  //  Getting user recent data from Database
-  getUsers(token) {
-    axios.post('https://myflixdb17.herokuapp.com/users', {
-      headers: { Authorization: `Bearer ${token}` }
+   //  Getting user recent data from Database
+   getUser(token) {
+    const Username = localStorage.getItem('user');
+    axios.get(`https://myflixdb17.herokuapp.com/users/${Username}`, {
+      headers: { Authorization: `Bearer ${token}` },
     })
       .then(response => {
         // Assign the result to the state
-        this.setState({
-          users: response.data
-        });
+        this.props.setUser(response.data);
         console.log(response)
       })
       .catch(function (error) {
@@ -106,21 +100,21 @@ class MainView extends React.Component {
       });
   }
 
-  //When a new user is registered  
-  onRegister(register) {
-    this.setState({
-      register: register,
-    });
-  }
+//When a new user is registered  
+  // onRegister(register) {
+  //   this.setState({
+  //     register: register,
+  //   });
+  // }
+
 
     render() {
-        const { movies } = this.props;
-        const { user } = this.state;
+        const { movies, user } = this.props;
          // If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView
          console.log("render", user);
 
   
-      return (
+         return (
           <Router>
             <NavBar user={user} />
     
@@ -188,7 +182,7 @@ class MainView extends React.Component {
                 history.goBack()} />
             </Col>
             }} />
-
+​
             <Route exact path='/users/:username' render={({ history }) => {
               if (!user) return <LoginView onLoggedIn={(data) => 
                 this.onLoggedIn(data)} />;

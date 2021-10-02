@@ -25509,12 +25509,17 @@ parcelHelpers.export(exports, "SET_MOVIES", ()=>SET_MOVIES
 );
 parcelHelpers.export(exports, "SET_FILTER", ()=>SET_FILTER
 );
+parcelHelpers.export(exports, "SET_USER", ()=>SET_USER
+);
 parcelHelpers.export(exports, "setMovies", ()=>setMovies
 );
 parcelHelpers.export(exports, "setFilter", ()=>setFilter
 );
+parcelHelpers.export(exports, "setUser", ()=>setUser
+);
 const SET_MOVIES = 'SET_MOVIES';
 const SET_FILTER = 'SET_FILTER';
+const SET_USER = 'SET_USER';
 function setMovies(value) {
     return {
         type: SET_MOVIES,
@@ -25524,6 +25529,12 @@ function setMovies(value) {
 function setFilter(value) {
     return {
         type: SET_FILTER,
+        value
+    };
+}
+function setUser(value) {
+    return {
+        type: SET_USER,
         value
     };
 }
@@ -25569,34 +25580,27 @@ var _moviesListDefault = parcelHelpers.interopDefault(_moviesList);
 // SCSS Styling import
 var _mainViewScss = require("./main-view.scss");
 class MainView extends _reactDefault.default.Component {
-    constructor(){
-        super(); // This will call the parent React.Component’s constructor, which will give your class the actual React component’s features. Also, it will initialize the component’s this variable
-        this.state = {
-            user: null
-        };
-    }
     componentDidMount() {
         let accessToken = localStorage.getItem('token');
         if (accessToken !== null) {
-            this.setState({
-                user: localStorage.getItem('user')
-            });
+            this.getUser(accessToken);
             this.getMovies(accessToken);
         }
     }
     onLoggedOut() {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-        this.setState({
-            user: null
-        });
+    // this.setState({
+    //   user: null
+    // });
     }
     // Log In
     onLoggedIn(authData) {
         console.log(authData);
-        this.setState({
-            user: authData.user.Username
-        });
+        // this.setState({
+        //   user: authData.user.Username
+        // });
+        this.props.setUser(authData.user);
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
@@ -25616,36 +25620,34 @@ class MainView extends _reactDefault.default.Component {
         });
     }
     //  Getting user recent data from Database
-    getUsers(token) {
-        _axiosDefault.default.post('https://myflixdb17.herokuapp.com/users', {
+    getUser(token) {
+        const Username = localStorage.getItem('user');
+        _axiosDefault.default.get(`https://myflixdb17.herokuapp.com/users/${Username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
             // Assign the result to the state
-            this.setState({
-                users: response.data
-            });
+            this.props.setUser(response.data);
             console.log(response);
         }).catch(function(error) {
             console.log(error);
         });
     }
     //When a new user is registered  
-    onRegister(register) {
-        this.setState({
-            register: register
-        });
-    }
+    // onRegister(register) {
+    //   this.setState({
+    //     register: register,
+    //   });
+    // }
     render() {
-        const { movies  } = this.props;
-        const { user  } = this.state;
+        const { movies , user  } = this.props;
         // If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView
         console.log("render", user);
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 124
+                lineNumber: 118
             },
             __self: this,
             children: [
@@ -25653,7 +25655,7 @@ class MainView extends _reactDefault.default.Component {
                     user: user,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 125
+                        lineNumber: 119
                     },
                     __self: this
                 }),
@@ -25661,7 +25663,7 @@ class MainView extends _reactDefault.default.Component {
                     className: "main-view justify-content-md-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 127
+                        lineNumber: 121
                     },
                     __self: this,
                     children: [
@@ -25684,7 +25686,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 129
+                                lineNumber: 123
                             },
                             __self: this
                         }),
@@ -25701,7 +25703,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 140
+                                lineNumber: 134
                             },
                             __self: this
                         }),
@@ -25715,7 +25717,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 147
+                                lineNumber: 141
                             },
                             __self: this
                         }),
@@ -25741,7 +25743,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 153
+                                lineNumber: 147
                             },
                             __self: this
                         }),
@@ -25767,7 +25769,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 165
+                                lineNumber: 159
                             },
                             __self: this
                         }),
@@ -25793,10 +25795,11 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 179
+                                lineNumber: 173
                             },
                             __self: this
                         }),
+                        "​",
                         /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
                             exact: true,
                             path: "/users/:username",
@@ -25812,7 +25815,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 192
+                                lineNumber: 186
                             },
                             __self: this
                         })
