@@ -25496,9 +25496,18 @@ function movies(state = [], action) {
             return state;
     }
 }
+function user(state = null, action) {
+    switch(action.type){
+        case _actions.SET_USER:
+            return action.value;
+        default:
+            return state;
+    }
+}
 const moviesApp = _redux.combineReducers({
     visibilityFilter,
-    movies
+    movies,
+    user
 });
 exports.default = moviesApp;
 
