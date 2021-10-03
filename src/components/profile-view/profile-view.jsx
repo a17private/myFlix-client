@@ -2,6 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Button, Card, CardDeck, Form, Row } from 'react-bootstrap';
+import { connect } from 'react-redux';
+
+// #0
+import { setMovies, setUser } from '../../actions/actions';
 
 import './profile-view.scss';
 
@@ -243,4 +247,4 @@ let mapStateToProps = state => {
 }
 
 // #8
-export default connect(mapStateToProps, { setMovies, setUser } )(MainView);
+export default connect(mapStateToProps, { setMovies, setUser } )( ProfileView );
