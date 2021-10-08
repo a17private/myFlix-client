@@ -29790,7 +29790,7 @@ class MovieView extends _reactDefault.default.Component {
                             variant: "dark",
                             className: "fav-button",
                             value: movie._id,
-                            onClick: (e)=>this.addFavorite(e, movie)
+                            onClick: (e)=>this.addFavorite()
                             ,
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",

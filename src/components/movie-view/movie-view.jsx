@@ -62,7 +62,7 @@ class MovieView extends React.Component {
         <span className="value">{movie.Director.Name}</span>
       </div>
       <span>
-      <Button variant='dark' className="fav-button" value={movie._id} onClick={(e) => this.addFavorite(e, movie)}>
+      <Button variant='dark' className="fav-button" value={movie._id} onClick={(e) => this.addFavorite()}>
          Add to favourites 
       </Button>
       {' '}
