@@ -6,11 +6,12 @@ import axios from 'axios';
 import Badge from 'react-bootstrap/Badge';
 import { connect } from 'react-redux';
 
+import { setFavoritemovie } from '../../actions/actions';
 
 
 const mapStateToProps = state => {
-  const { movies , user} = state;
-  return { movies , user};
+  const { movies, user, favoritemovie } = state;
+  return { movies, user, favoritemovie };
 };
 
 
@@ -26,6 +27,9 @@ class MovieView extends React.Component {
     })
       .then(response => {
         alert(`Added to Favorites List`)
+        this.props.setFavoritemovie(response.data);
+
+
       })
       .catch(function (error) {
         console.log(error);
@@ -75,7 +79,7 @@ class MovieView extends React.Component {
 }
 
 
-export default connect(mapStateToProps)(MovieView);
+export default connect(mapStateToProps, {setFavoritemovie} )(MovieView);
 
 
 
