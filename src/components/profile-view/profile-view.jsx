@@ -5,7 +5,7 @@ import { Button, Card, CardDeck, Form, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 // #0
-import { setMovies, setUser } from '../../actions/actions';
+import {  setUsername, setPassword, setBirthday, setFavoritemovie } from '../../actions/actions';
 
 import './profile-view.scss';
 
@@ -26,13 +26,10 @@ class ProfileView extends React.Component {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => {
-        this.props.setUser({
-          Username: response.data.Username,
-          Password: response.data.Password,
-          Email: response.data.Email,
-          Birthday: response.data.Birthday,
-          FavoriteMovies: response.data.FavoriteMovies,
-        });
+        this.props.setUsername(response.data.Username)
+        this.props.setPassword(response.data.Password)
+        this.props.setBirthday(response.data.Birthday)
+        this.props.setFavoritemovie(response.data.FavoriteMovies)
       })
       .catch(function (error) {
         console.log(error);
@@ -61,9 +58,11 @@ class ProfileView extends React.Component {
 
 
   handleUpdate(e, newUsername, newPassword, newEmail, newBirthday) {
-    this.props.setUser({
-      validated: null,
-    });
+  //  this.props.setUser({
+    //  validated: null,
+   // });
+
+    //validate  will break. 
 
     const form = e.currentTarget;
     if (form.checkValidity() === false) {
@@ -82,20 +81,19 @@ class ProfileView extends React.Component {
     axios.put(`https://myflixdb17.herokuapp.com/users/${Username}`, {
       headers: { Authorization: `Bearer ${token}` },
       data: {
-        Username: newUsername ? newUsername : this.state.Username,
-        Password: newPassword ? newPassword : this.state.Password,
-        Email: newEmail ? newEmail : this.state.Email,
-        Birthday: newBirthday ? newBirthday : this.state.Birthday,
+        Username: newUsername ? newUsername : this.props.username,
+        Password: newPassword ? newPassword : this.props.password,
+        Email: newEmail ? newEmail : this.props.email,
+        Birthday: newBirthday ? newBirthday : this.props.birthday
       },
     })
       .then((response) => {
         alert('Saved Changes');
-        this.props.setUser({
-          Username: response.data.Username,
-          Password: response.data.Password,
-          Email: response.data.Email,
-          Birthday: response.data.Birthday,
-        });
+        this.props.setUsername(response.data.Username)
+        this.props.setPassword(response.data.Password)
+        this.props.setBirthday(response.data.Birthday)
+        this.props.setFavoritemovie(response.data.FavoriteMovies)
+    
         localStorage.setItem('user', this.props.Username);
         window.open('/users/${username}', '_self');
       })
@@ -107,6 +105,8 @@ class ProfileView extends React.Component {
   setUsername(input) {
     this.Username = input;
   }
+
+  //actions needed
 
   setPassword(input) {
     this.Password = input;
@@ -141,7 +141,7 @@ class ProfileView extends React.Component {
   }
 
   render() {
-    const { FavoriteMovies, validated } = this.props;
+    const { favoritemovie } = this.props;
     const { movies, user } = this.props;
 
     return (
@@ -149,12 +149,12 @@ class ProfileView extends React.Component {
         <Card className="profile-card">
           <h2>Favorites</h2>
           <Card.Body>
-           {FavoriteMovies.length === 0 && <h6 className="text-center">Add a favourite! </h6>}
+           {favoritemovie.length === 0 && <h6 className="text-center">Add a favourite! </h6>}
 
             <div className="favorites-movies ">
-              {FavoriteMovies.length > 0 &&
+              {favoritemovie.length > 0 &&
                 movies.map((movie) => {
-                  if (movie._id === FavoriteMovies.find((favMovie) => favMovie === movie._id)) {
+                  if (movie._id === favoritemovie.find((favMovie) => favMovie === movie._id)) {
                     return (
                       <CardDeck className="movie-card-deck" key={movie._id}>
                         <Card className="favorites-item card-content" style={{ width: '16rem' }} >
@@ -179,28 +179,28 @@ class ProfileView extends React.Component {
           <Card.Body>
 
     
-            <Form noValidate validated={validated} className="update-form" onSubmit={(e) => this.handleUpdate(e, this.Username, this.Password, this.Email, this.Birthday)}>
+            <Form className="update-form" onSubmit={(e) => this.handleUpdate(e, this.Username, this.Password, this.Email, this.Birthday)}>
 
               <Form.Group controlId="formBasicUsername">
                 <Form.Label className="form-label">Username</Form.Label>
-                <Form.Control type="text" placeholder="Change Username" onChange={(e) => this.setUsername(e.target.value)} />
+                <Form.Control type="text" placeholder="Change Username" onChange={(e) => this.props.setUsername(e.target.value)} />
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
                 <Form.Label className="form-label">
                   Password<span className="required">*</span>
                 </Form.Label>
-                <Form.Control type="password" placeholder="New Password" onChange={(e) => this.setPassword(e.target.value)} />
+                <Form.Control type="password" placeholder="New Password" onChange={(e) => this.props.setPassword(e.target.value)} />
               </Form.Group>
 
               <Form.Group controlId="formBasicEmail">
                 <Form.Label className="form-label">Email</Form.Label>
-                <Form.Control type="email" placeholder="Change Email" onChange={(e) => this.setEmail(e.target.value)} />
+                <Form.Control type="email" placeholder="Change Email" onChange={(e) => this.props.setEmail(e.target.value)} />
               </Form.Group>
 
               <Form.Group controlId="formBasicBirthday">
                 <Form.Label className="form-label">Birthday</Form.Label>
-                <Form.Control type="date" placeholder="Change Birthday" onChange={(e) => this.setBirthday(e.target.value)} />
+                <Form.Control type="date" placeholder="Change Birthday" onChange={(e) => this.props.setBirthday(e.target.value)} />
               </Form.Group>
               
              
@@ -243,8 +243,8 @@ ProfileView.propTypes = {
 
 // #7
 let mapStateToProps = state => {
-  return { movies: state.movies, user: state.user }
+  return { username: state.username, password: state.password, birthday: state.birthday, favoritemovie: state.favoritemovie }
 }
 
 // #8
-export default connect(mapStateToProps, { setMovies, setUser } )( ProfileView );
+export default connect(mapStateToProps, { setUsername, setPassword, setBirthday, setFavoritemovie} )( ProfileView );
