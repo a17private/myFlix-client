@@ -29713,10 +29713,10 @@ const mapStateToProps = (state)=>{
     };
 };
 class MovieView extends _reactDefault.default.Component {
-    addFavorite() {
+    addFavorite(movie) {
         const token = localStorage.getItem('token');
         const username = localStorage.getItem('user');
-        _axiosDefault.default.post(`https://myflixdb17.herokuapp.com/users/${username}/movies/${this.props.movie._id}`, {
+        _axiosDefault.default.post(`https://myflixdb17.herokuapp.com/users/${username}/movies/${movie._id}`, {
         }, {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -29886,7 +29886,7 @@ class MovieView extends _reactDefault.default.Component {
                             variant: "dark",
                             className: "fav-button",
                             value: movie._id,
-                            onClick: (e)=>this.addFavorite(e, movie)
+                            onClick: (e)=>this.addFavorite(movie)
                             ,
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",
@@ -29937,7 +29937,7 @@ MovieView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap/Button":"9CzHT","react-router-dom":"cpyQW","axios":"iYoWk","react-bootstrap/Badge":"jCDqd","react-redux":"2L0if","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5k0mc","../../actions/actions":"1Ttfj"}],"9CzHT":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap/Button":"9CzHT","react-router-dom":"cpyQW","axios":"iYoWk","react-bootstrap/Badge":"jCDqd","react-redux":"2L0if","../../actions/actions":"1Ttfj","@parcel/transformer-js/src/esmodule-helpers.js":"3Hply","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5k0mc"}],"9CzHT":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _extends = require("@babel/runtime/helpers/esm/extends");

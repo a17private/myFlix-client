@@ -18,11 +18,11 @@ const mapStateToProps = state => {
 
 class MovieView extends React.Component {
 
-  addFavorite() {
+  addFavorite(movie) {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
 
-    axios.post(`https://myflixdb17.herokuapp.com/users/${username}/movies/${this.props.movie._id}`, {}, {
+    axios.post(`https://myflixdb17.herokuapp.com/users/${username}/movies/${movie._id}`, {}, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
@@ -66,7 +66,7 @@ class MovieView extends React.Component {
         <span className="value">{movie.Director.Name}</span>
       </div>
       <span>
-      <Button variant='dark' className="fav-button" value={movie._id} onClick={(e) => this.addFavorite(e, movie)}>
+      <Button variant='dark' className="fav-button" value={movie._id} onClick={(e) => this.addFavorite(movie)}>
          Add to favourites 
       </Button>
       {' '}
