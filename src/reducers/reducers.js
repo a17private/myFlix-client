@@ -1,7 +1,7 @@
 // src/reducers/reducers.js
 import { combineReducers } from 'redux';
 
-import { SET_FILTER, SET_MOVIES, SET_USER, SET_USERNAME, SET_PASSWORD, SET_EMAIL, SET_BIRTHDAY, SET_FAVORITEMOVIE } from '../actions/actions';
+import { SET_FILTER, SET_MOVIES, SET_USER, SET_USERNAME, SET_PASSWORD, SET_EMAIL, SET_BIRTHDAY, SET_FAVORITEMOVIE, GET_USER, REMOVE_FAVORITEMOVIE, HANDLE_UPDATE } from '../actions/actions';
 
 
 function visibilityFilter(state = '', action) {
@@ -86,6 +86,39 @@ function favoritemovie(state = [], action) {
   }
 }
 
+function getuser(state = [], action) {
+  switch (action.type) {
+    case GET_USER:
+      state.push(action.value);
+      return state;
+    default:
+      return state;
+  }
+}
+
+
+function removefavoritemovie(state = [], action) {
+  switch (action.type) {
+    case REMOVE_FAVORITEMOVIE:
+      state.push(action.value);
+      return state;
+    default:
+      return state;
+  }
+}
+
+
+function handleupdate(state = [], action) {
+  switch (action.type) {
+    case HANDLE_UPDATE:
+      state.push(action.value);
+      return state;
+    default:
+      return state;
+  }
+}
+
+
 
 
 
@@ -97,7 +130,10 @@ const moviesApp = combineReducers({
   password,
   birthday,
   favoritemovie,
-  email
+  email,
+  handleupdate,
+  removefavoritemovie,
+  getuser
 });
 
 export default moviesApp;

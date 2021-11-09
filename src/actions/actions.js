@@ -40,6 +40,11 @@ export function setBirthday(value) {
 }
 
 
+export function setEmail(value) {
+  return { type: SET_EMAIL, value};
+}
+
+
 export function setFavoritemovie(value) {
   return { type: SET_FAVORITEMOVIE, value};
 }

@@ -2,10 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card, CardDeck, Form, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { getUser, removeFavoriteMovie, handleUpdate } from '../../actions/actions';
-
 // #0
-import {  setUsername, setPassword, setBirthday, setFavoritemovie } from '../../actions/actions';
+import {  setUsername, setPassword, setBirthday, setFavoritemovie, getUser, removeFavoriteMovie, handleUpdate, setEmail } from '../../actions/actions';
 
 import './profile-view.scss';
 
@@ -20,7 +18,7 @@ class ProfileView extends React.Component {
 
 
   render() {
-    const { favoritemovie, movies, user } = this.props;
+    const { favoritemovie, movies, user, username, birthday, password, email,  handleupdate, removefavoritemovie, getuser } = this.props;
 
     return (
        <Row className="profile-view">
@@ -121,8 +119,8 @@ ProfileView.propTypes = {
 
 // #7
 let mapStateToProps = state => {
-  return { username: state.username, password: state.password, birthday: state.birthday, favoritemovie: state.favoritemovie }
+  return { username: state.username, password: state.password, birthday: state.birthday, favoritemovie: state.favoritemovie, handleupdate: state.handleupdate, removefavoritemovie: state.removefavoritemovie, getuser: state.getuser, email: state.email  }
 }
 
 // #8
-export default connect(mapStateToProps, { setUsername, setPassword, setBirthday, setFavoritemovie} )( ProfileView );
+export default connect(mapStateToProps, { setUsername, setPassword, setBirthday, setFavoritemovie, setEmail, getUser, removeFavoriteMovie, handleUpdate } )( ProfileView );
