@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { Navbar, Nav, Form, FormControl } from 'react-bootstrap';
 
-export class NavBar extends React.Component {
+class NavBar extends React.Component {
   constructor() {
     super();
 
