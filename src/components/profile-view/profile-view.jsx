@@ -1,8 +1,8 @@
 import React from 'react';
-import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Button, Card, CardDeck, Form, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { getUser, removeFavoriteMovie, handleUpdate } from '../../actions/actions';
 
 // #0
 import {  setUsername, setPassword, setBirthday, setFavoritemovie } from '../../actions/actions';
@@ -14,135 +14,13 @@ class ProfileView extends React.Component {
   componentDidMount() {
     const accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
-      this.getUser(accessToken);
+      this.props.getUser(accessToken);
     }
   }
 
-
-  //getting user method
-  getUser(token) {
-    const Username = localStorage.getItem('user');
-    axios.get(`https://myflixdb17.herokuapp.com/users/${Username}`, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then((response) => {
-        this.props.setUsername(response.data.Username)
-        this.props.setPassword(response.data.Password)
-        this.props.setBirthday(response.data.Birthday)
-        this.props.setFavoritemovie(response.data.FavoriteMovies)
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
-
-  removeFavoriteMovie(e, movie) {
-    e.preventDefault();
-    const token = localStorage.getItem('token');
-    const username = localStorage.getItem('user');
-
-
-    axios
-    .delete(`https://myflixdb17.herokuapp.com/users/${username}/movies/${movie._id}`, {
-      headers: { Authorization: `Bearer ${token}` },
-      })
-      .then(() => {
-        alert('Movie was removed');
-        this.componentDidMount();
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-     //.then(() => window.location.reload());
-  }
-
-
-  handleUpdate(e, newUsername, newPassword, newEmail, newBirthday) {
-  //  this.props.setUser({
-    //  validated: null,
-   // });
-
-    //validate  will break. 
-
-    const form = e.currentTarget;
-    if (form.checkValidity() === false) {
-      e.preventDefault();
-      e.stopPropagation();
-      this.props.setUser({
-        validated: true,
-      });
-      return;
-    }
-    e.preventDefault();
-
-    const token = localStorage.getItem('token');
-    const Username = localStorage.getItem('user');
-
-    axios.put(`https://myflixdb17.herokuapp.com/users/${Username}`, {
-      headers: { Authorization: `Bearer ${token}` },
-      data: {
-        Username: newUsername ? newUsername : this.props.username,
-        Password: newPassword ? newPassword : this.props.password,
-        Email: newEmail ? newEmail : this.props.email,
-        Birthday: newBirthday ? newBirthday : this.props.birthday
-      },
-    })
-      .then((response) => {
-        alert('Saved Changes');
-        this.props.setUsername(response.data.Username)
-        this.props.setPassword(response.data.Password)
-        this.props.setBirthday(response.data.Birthday)
-        this.props.setFavoritemovie(response.data.FavoriteMovies)
-    
-        localStorage.setItem('user', this.props.Username);
-        window.open('/users/${username}', '_self');
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
- 
-  setUsername(input) {
-    this.Username = input;
-  }
-
-  //actions needed
-
-  setPassword(input) {
-    this.Password = input;
-  }
-
-  setEmail(input) {
-    this.Email = input;
-  }
-
-  setBirthday(input) {
-    this.Birthday = input;
-  }
-
-  handleDeleteUser(e) {
-    e.preventDefault();
-
-    const token = localStorage.getItem('token');
-    const Username = localStorage.getItem('user');
-
-    axios.delete(`https://myflixdb17.herokuapp.com/users/${Username}`, {
-      headers: {Authorization: `Bearer ${token}` },
-    })
-      .then(() => {
-        localStorage.removeItem('user');
-        localStorage.removeItem('token');
-        alert('Your account has been deleted.');
-        window.open('/', '_self');
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }
 
   render() {
-    const { favoritemovie } = this.props;
-    const { movies, user } = this.props;
+    const { favoritemovie, movies, user } = this.props;
 
     return (
        <Row className="profile-view">
@@ -179,7 +57,7 @@ class ProfileView extends React.Component {
           <Card.Body>
 
     
-            <Form className="update-form" onSubmit={(e) => this.handleUpdate(e, this.Username, this.Password, this.Email, this.Birthday)}>
+            <Form className="update-form" onSubmit={(e) => this.props.handleUpdate(e, this.Username, this.Password, this.Email, this.Birthday)}>
 
               <Form.Group controlId="formBasicUsername">
                 <Form.Label className="form-label">Username</Form.Label>
